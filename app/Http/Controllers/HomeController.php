@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientCard;
 use App\CuponBuy;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -19,11 +20,16 @@ class HomeController extends Controller
       $rol=Auth()->user()->roleId;
       if ($rol == 2) {
         $purachases = DB::table('users')
-        ->join('cupon_buys', 'users.id', '=', 'cupon_buys.userId')
-        ->select('users.id','users.codReference', 'cupon_buys.id', 'cupon_buys.userId','cupon_buys.created_at')
+        ->join('client_cards', 'users.id', '=', 'client_cards.userId')
+        ->select('users.id','client_cards.codReference', 'client_cards.id', 'client_cards.userId','client_cards.created_at')
         ->where('userId',$idAuth)
         ->get();
-        return view('home',compact('purachases'));
+        $codeClient = ClientCard::select('codReference')
+                            ->where('state',1)
+                            ->where('userId',$idAuth)
+                            ->get();
+        //dd($codeClient);
+        return view('home',compact('purachases','codeClient'));
       } else {
         $clientCount = CuponBuy::count();
         $clients = User::where('roleId',2)->count();

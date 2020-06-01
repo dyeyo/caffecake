@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\BuysGeneral;
+use App\ClientCard;
 use App\CuponBuy;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,23 +14,57 @@ class BuyController extends Controller
 {
   public function index(CuponBuy $cuponBuy)
   {
-    $buys = CuponBuy::with('user')->get();
-    $frecuentClients = User::select('id','codReference')
-            ->get();
-    $clients = User::select('id','numIndentificate','codReference')
-    ->where('codReference' , null)
-            ->get();
-    return view('buys.index',compact('buys','clients','frecuentClients'));
+    $buys = CuponBuy::with('clientCard.user')->get();
+    $buysRegular = BuysGeneral::with('user')->get();
+    return view('buys.index',compact('buys','buysRegular'));
   }
 
   public function loadBuys($id)
   {
-    return response()->json(CuponBuy::where('userId', $id)->get());
+    return response()->json(CuponBuy::where('regularClienteId', $id)->get());
+  }
+
+  public function create()
+  {
+    $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
+    $clients = User::select('id','numIndentificate')->where('roleId',2)->get();
+    return view('buys.create',compact('clients','frecuentClients'));
   }
 
   public function store(Request $request)
   {
-    CuponBuy::create($request->all());
+    //dd($request->all());
+    $countBuys = CuponBuy::where('regularClienteId',$request->regularClienteId)->count();
+    if ($countBuys == 12) {
+      //dd($request->userId);
+      $clietCartState = ClientCard::find($request->userId);
+      $clietCartState->state = 2;
+      $clietCartState->update();
+      //dd($clietCartState);
+      ClientCard::create([
+        'codReference' => random_int(1001,5000),
+        'state' => 1,
+        'userId' => $request->userId
+      ]);
+      $venta = CuponBuy::create([
+        'regularClienteId'=>$request->regularClienteId
+      ]);
+      Session::flash('message', 'Venta registrada con exito y tarjeta de usuario actualizada');
+      return redirect()->route('buys');
+    }
+    //dd('else'.$request->userId);
+    $venta = CuponBuy::create([
+      'regularClienteId'=>$request->regularClienteId
+    ]);
+    $venta->save();
+    Session::flash('message', 'Venda registrada con exito');
+    return redirect()->route('buys');
+  }
+
+  public function storeRegular(Request $request)
+  {
+    //dd($request->all());
+    BuysGeneral::create($request->all());
     Session::flash('message', 'Venda registrada con exito');
     return redirect()->route('buys');
   }
@@ -51,12 +87,13 @@ class BuyController extends Controller
   {
     $purachase = CuponBuy::with('user')->where(Auth()->user()->id)->get();
     return view('home',compact('purachase'));
-
   }
 
-  public function update(Request $request, $id)
+  public function codeRenovation(Request $request, User $user)
   {
-    //
+    //dd($request->all());
+    $user->update($request->all());
+    return redirect()->route('buys');
   }
 
   public function destroy($id)

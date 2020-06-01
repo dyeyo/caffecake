@@ -8,8 +8,8 @@ class CuponBuy extends Model
 {
   protected $guarded = [];
 
-  public function user()
+  public function clientCard()
   {
-    return $this->belongsTo(User::class,'userId');
+    return $this->belongsTo(ClientCard::class,'regularClienteId');
   }
 }

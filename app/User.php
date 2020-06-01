@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class  User extends Authenticatable
 {
   use Notifiable;
 
@@ -27,8 +27,13 @@ class User extends Authenticatable
     return $this->belongsTo(User::class);
   }
 
-  public function cupon()
+  public function cartClient()
   {
-  return $this->hasMany(CuponBuy::class);
+    return $this->hasMany(ClientCard::class,'userId');
+  }
+
+  public function buysClientGeneral()
+  {
+    return $this->hasMany(BuysGeneral::class,'userId');
   }
 }

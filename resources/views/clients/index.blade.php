@@ -57,11 +57,13 @@
                       <td>{{$client->mobile }}</td>
                       <td>
                         @if($client->codReference == '')
-                          <form class="user"  action="{{route('activateTarjet', $client->id)}}" method="post">
-                            {{ method_field('put') }}
+                          <form class="user"  action="{{route('activateTarjet')}}" method="post">
+                            {{ method_field('post') }}
                             {{csrf_field()}}
-                            <input type="hidden" name="codReference" value="{{ $client->name}}{{rand(1,30) }}">
-                            <button class="btn btn-btn-outline-light" {{ $client->codReference }} type="submit">ACTIVAR</button>
+                            <input type="hidden" name="codReference" value="{{ $client->name}}{{rand(1,1000) }}">
+                            <input type="hidden" name="state" value="1">
+                            <input type="hidden" name="userId" value="{{ $client->id }}">
+                            <button class="btn btn-btn-outline-light"  type="submit">ACTIVAR</button>
                           </form>
                         @else
                           <button class="btn btn-primary" disabled>ACTIVO</button>
@@ -82,4 +84,5 @@
       </div>
     </div>
 </div>
+
 @endsection

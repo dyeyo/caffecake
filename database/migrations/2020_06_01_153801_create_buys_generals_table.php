@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuponBuysTable extends Migration
+class CreateBuysGeneralsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCuponBuysTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupon_buys', function (Blueprint $table) {
+        Schema::create('buys_generals', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->bigInteger('regularClienteId')->unsigned();
-          $table->foreign('regularClienteId')->references('id')->on('client_cards')->onDelete('cascade');
-
+          $table->bigInteger('userId')->unsigned();
+          $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
           $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateCuponBuysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupon_buys');
+        Schema::dropIfExists('buys_generals');
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientCard;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ClientContreller extends Controller
@@ -11,9 +13,16 @@ class ClientContreller extends Controller
 
     public function index()
     {
-      $clients = User::all();
-      $code = User::select('id','codReference')->get();
-      return view('clients.index', compact('clients','code'));
+      //$clients = User::with('cartClient')->where('roleId',2)->get();
+      $clients = DB::table('users')
+        ->join('client_cards', 'users.id', '=', 'client_cards.userId')
+        ->select('users.id','users.name','users.lastname','users.numIndentificate',
+                'users.mobile','client_cards.codReference', 'client_cards.id',
+                'client_cards.userId','client_cards.created_at')
+        ->where('users.roleId',2)
+        ->get();
+      //dd($clients);
+      return view('clients.index', compact('clients',));
     }
 
     public function create()
@@ -21,16 +30,11 @@ class ClientContreller extends Controller
       return view('clients.create');
     }
 
-    public function activateTarjet(Request $request, User $user)
+    public function activateTarjet(Request $request, ClientCard $clientCard)
     {
-      $user->update($request->all());
+      $clientCard->create($request->all());
       Session::flash('message', 'Cliente  frecuente actualizado con exito');
       return redirect()->route('clients');
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit($id)

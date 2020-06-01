@@ -6,6 +6,25 @@
           <div class="d-flex no-block align-items-center">
             <div>
               <h3><i class="icon-screen-desktop"></i></h3>
+              <p class="text-muted">CODIGO CLIENTE FRECUENTE</p>
+            </div>
+            <div class="ml-auto">
+              @foreach($codeClient as $code )
+                <h2 class="counter text-primary">{{$code->codReference}}</h2>
+              @endforeach
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex no-block align-items-center">
+            <div>
+              <h3><i class="icon-screen-desktop"></i></h3>
               <p class="text-muted">TOTAL COMPRAS</p>
             </div>
             <div class="ml-auto">
@@ -62,6 +81,10 @@
   <div class="col-md-8">
       <div class="card">
           <div class="card-body">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Agregar Referido
+          </button>
+              <hr>
               <h5 class="card-title">MIS COMPRAS</h5>
               <table class="table table-striped">
                   <thead>
@@ -107,5 +130,25 @@
               </div>
           </div>
       </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Referido</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
