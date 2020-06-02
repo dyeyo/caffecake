@@ -92,7 +92,7 @@ class ClientContreller extends Controller
                   //->where('client_cards.state',1)
                   ->where('users.userReferide',$request->codeReferide)
                   ->get();
-      dd($countCode);
+      //dd($countCode);
       //$countCode = response()->json(CuponBuy::where('regularClienteId', $id)->get());
     }
 }

@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group row">
-                          <label for="name" class="col-md-4 col-form-label text-md-right">Nombres</label>
+                          <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
                           <div class="col-md-6">
                               <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -23,7 +23,7 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label for="name" class="col-md-4 col-form-label text-md-right">Apellidos</label>
+                          <label for="name" class="col-md-4 col-form-label text-md-right">Apellido</label>
                           <div class="col-md-6">
                               <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" >
                               @error('lastname')
@@ -77,7 +77,7 @@
                           </div>
 
                         <div class="form-group row">
-                          <label for="password" class="col-md-4 col-form-label text-md-right">Num de Contacto</label>
+                          <label for="password" class="col-md-4 col-form-label text-md-right">Telefono</label>
                           <div class="col-md-6">
                               <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                               @error('mobile')
@@ -92,7 +92,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                  Registro
                                 </button>
                             </div>
                         </div>
