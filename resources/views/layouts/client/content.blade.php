@@ -57,7 +57,6 @@
               <p class="text-muted">TOTAL REFERIDOS</p>
             </div>
             <div class="ml-auto">
-              <h2 class="counter text-cyan">{{$referencesCount}}</h2>
             </div>
           </div>
         </div>
