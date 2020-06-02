@@ -8,7 +8,9 @@
 <section
   id="wrapper"
   class="login-register login-sidebar"
-
+  style="
+    background-image: url(https://media.istockphoto.com/photos/waffles-with-fruits-breakfast-background-picture-id891517506);
+  "
 >
   <div class="login-box card">
     <div class="card-body">

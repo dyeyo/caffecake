@@ -57,7 +57,7 @@
               <p class="text-muted">TOTAL REFERIDOS</p>
             </div>
             <div class="ml-auto">
-              <h2 class="counter text-cyan">169</h2>
+              <h2 class="counter text-cyan">{{$referencesCount}}</h2>
             </div>
           </div>
         </div>
@@ -143,11 +143,21 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form class="user"  action="/sendemail" method="POST">
+          {{csrf_field()}}
+          <div class="form-group">
+          <label for="emialReferide">Correo electronico Referido</label>
+          <input type="email" class="form-control" name="emialReferide" id="emialReferide" placeholder="Correo electronico Referido">
+          @foreach($codeClient as $code )
+            <input type="hidden" name="codReference" value="{{ $code->codReference }}">
+          @endforeach
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Enviar email</button>
+        </form>
+
       </div>
     </div>
   </div>

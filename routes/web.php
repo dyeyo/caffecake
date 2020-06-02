@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
 Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
+Route::get('/referidos',  'ClientContreller@referide')->name('referide');
+Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
@@ -17,7 +19,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/cliente/{user}', 'ClientContreller@delete')->name('deleteUser');
 
     //TARJETA FRECUENTE
-    Route::post('/cliente/activarTarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');
+    Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');
+    Route::post('/cliente/descuento_referido/', 'ClientContreller@referredDiscount')->name('referredDiscount');
 
     //VENTAS
     Route::get('/ventas', 'BuyController@index')->name('buys');
@@ -31,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
   });
 
   Route::group(['middleware' => ['client']], function () {
-
+    Route::post('/sendemail', 'HomeController@sendEmail')->name('sendemail');
   });
 });
 
