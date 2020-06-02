@@ -52,7 +52,7 @@ class HomeController extends Controller
                             ->where('client_cards.state',1)
                             ->where('users.userReferide',$x->codReference)
                             ->count();
-        dd($codReferenceClient);
+        //dd($codReferenceClient);
         return view('home',compact('purachases','codeClient','codReferenceClient'));
       } else {
         $clientCount = CuponBuy::count();
