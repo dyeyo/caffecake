@@ -20,7 +20,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //TARJETA FRECUENTE
     Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');
-    Route::post('/cliente/descuento_referido/', 'ClientContreller@referredDiscount')->name('referredDiscount');
+    Route::post('/referideDiscount', 'ClientContreller@referideDiscount')->name('referideDiscount');
+    Route::post('/updateUserReferides', 'ClientContreller@updateUserReferides')->name('updateUserReferides');
 
     //VENTAS
     Route::get('/ventas', 'BuyController@index')->name('buys');

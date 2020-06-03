@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BuysGeneral;
 use App\ClientCard;
 use App\CuponBuy;
 use App\User;
@@ -30,34 +31,50 @@ class HomeController extends Controller
                   ->where('userId',$idAuth)
                   ->get();
 
+        $countPurachases = count($purachases);
+
+        $purachasesClientRegular = DB::table('users')
+                  ->join('buys_generals', 'users.id', '=', 'buys_generals.userId')
+                  ->select('users.id','users.name', 'users.lastname','buys_generals.id', 'buys_generals.userId',
+                          'buys_generals.created_at')
+                  ->where('userId',$idAuth)
+                  ->get();
+
+        $countPurachasesClientRegular = count($purachasesClientRegular);
+
         $codeClient = ClientCard::select('codReference')
                             ->where('state',1)
                             ->where('userId',$idAuth)
                             ->get();
 
         $codeReferenceUser = DB::table('users')
-                            ->join('client_cards', 'users.id', '=', 'client_cards.userId')
+                            ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
                             ->select('client_cards.codReference')
                             ->where('client_cards.state',1)
                             ->where('userId',$idAuth)
                             ->get();
 
-        $x = $codeReferenceUser[0];
-        //dd($x);
-
-        $codReferenceClient = DB::table('users')
-                            ->join('client_cards', 'users.id', '=', 'client_cards.userId')
-                            ->select('users.id','users.userReferide','users.name','client_cards.codReference','client_cards.state')
-                            //->where('client_cards.id',$idAuth)
-                            ->where('client_cards.state',1)
-                            ->where('users.userReferide',$x->codReference)
+        if ($codeReferenceUser != '[]') {
+          $codReference = $codeReferenceUser[0];
+          $codReferenceClient = DB::table('users')
+                            ->leftJoin('buys_generals', 'users.id', '=', 'buys_generals.userId')
+                            ->select('id','userReferide','name','buys_generals.userId','buys_generals.referideComplete')
+                            ->where('buys_generals.referideComplete',1)
+                            ->where('userReferide',$codReference->codReference)
                             ->count();
-        //dd($codReferenceClient);
-        return view('home',compact('purachases','codeClient','codReferenceClient'));
+
+          return view('home',compact('purachases','codeClient','codReferenceClient',
+                                    'purachasesClientRegular','countPurachases'));
+        }
+        return view('home',compact('purachasesClientRegular','countPurachasesClientRegular'));
+
       } else {
-        $clientCount = CuponBuy::count();
         $clients = User::where('roleId',2)->count();
-        return view('home',compact('clientCount','clients'));
+        $totalBuysRegular = BuysGeneral::count();
+        $totalBuysEspecial = CuponBuy::count();
+        $totalBuys = $totalBuysRegular + $totalBuysEspecial;
+        $especialClients = ClientCard::where('state',1)->count();
+        return view('home',compact('clients','especialClients','totalBuys'));
       }
     }
 

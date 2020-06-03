@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
           $table->string('password');
           $table->string('numIndentificate')->nullable();
           $table->integer('mobile')->nullable();
+          $table->string('userReferide')->nullable();
           $table->bigInteger('roleId')->unsigned();
           $table->foreign('roleId')->references('id')->on('roles')->onDelete('cascade');
           $table->rememberToken();

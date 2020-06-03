@@ -20,8 +20,5 @@
     @else
       @include('layouts.client.content')
     @endif
-
-
-
   </div>
 @endsection

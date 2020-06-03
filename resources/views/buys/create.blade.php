@@ -9,9 +9,9 @@
       <div class="d-flex justify-content-end align-items-center">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="javascript:void(0)">Inicio</a>
+            <a href="/home">Inicio</a>
           </li>
-          <li class="breadcrumb-item">Ventas ></li>
+          <li class="breadcrumb-item"> <a href="/ventas">Ventas ></a>  </li>
           <li class="breadcrumb-item active">Agregar Venta ></li>
         </ol>
 
@@ -78,6 +78,7 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de cliente por Indentificación
                     </label>
+                    @isset($clients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
                       @foreach($clients as $client)
                         <option value="{{ $client->id }}">
@@ -85,6 +86,7 @@
                         </option>
                       @endforeach
                     </select>
+                    @endisset
                   </div>
                   <div class="form-group">
                     <button type="submit"  class="btn btn-primary">Realizar Venta</button>
@@ -98,8 +100,8 @@
                 <form method="POST" action="{{ route('createClient') }}">
                   {{csrf_field()}}
                   <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Nombres</label>
-                    <div class="col-md-6">
+                    <label for="name" class="col-md-12 col-form-label ">Nombre</label>
+                    <div class="col-md-12">
                       <input required id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -109,8 +111,8 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Apellidos</label>
-                    <div class="col-md-6">
+                    <label for="name" class="col-md-12 col-form-label ">Apellido</label>
+                    <div class="col-md-12">
                       <input required id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" >
                       @error('lastname')
                         <span class="invalid-feedback" role="alert">
@@ -120,8 +122,8 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Num Indentificación</label>
-                    <div class="col-md-6">
+                    <label for="name" class="col-md-12 col-form-label ">Num Indentificación</label>
+                    <div class="col-md-12">
                       <input required id="numIndentificate" type="text" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
                       @error('numIndentificate')
                         <span class="invalid-feedback" role="alert">
@@ -131,8 +133,8 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">Correo Electronico</label>
-                    <div class="col-md-6">
+                    <label for="email" class="col-md-12 col-form-label ">Correo Electronico</label>
+                    <div class="col-md-12">
                         <input required id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                         @error('email')
                           <span class="invalid-feedback" role="alert">
@@ -142,8 +144,8 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                      <label for="password" class="col-md-4 col-form-label text-md-right">Num de Contacto</label>
-                      <div class="col-md-6">
+                      <label for="password" class="col-md-12 col-form-label ">Num de Contacto</label>
+                      <div class="col-md-12">
                           <input required id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                           @error('mobile')
                               <span class="invalid-feedback" role="alert">

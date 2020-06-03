@@ -7,6 +7,7 @@ use App\ClientCard;
 use App\CuponBuy;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -63,8 +64,28 @@ class BuyController extends Controller
 
   public function storeRegular(Request $request)
   {
-    //dd($request->all());
-    BuysGeneral::create($request->all());
+    //$allBuysGeneral = BuysGeneral::all();
+    //dd($allBuysGeneral);
+    $codeUser = User::select('id','userReferide')->where('id',$request->userId)->get();
+    foreach ($codeUser as $code) {
+      $onlyCode = $code->userReferide;
+    }
+
+    if (BuysGeneral::where('userId', $request->userId)->exists() || $onlyCode == null) {
+      BuysGeneral::create([
+        'userId' => $request->userId,
+        'referideComplete' => 0
+      ]);
+      Session::flash('message', 'Venda registrada con exito');
+      return redirect()->route('buys');
+    }
+
+    BuysGeneral::create([
+      'userId' => $request->userId,
+      'referideComplete' => 1
+    ]);
+
+    Session::flash('messageReferide', 'PRIMERA COMPRA POR REFERIDO, RECLAMAR SU 2% DE DESCUENTO');
     Session::flash('message', 'Venda registrada con exito');
     return redirect()->route('buys');
   }
@@ -91,7 +112,6 @@ class BuyController extends Controller
 
   public function codeRenovation(Request $request, User $user)
   {
-    //dd($request->all());
     $user->update($request->all());
     return redirect()->route('buys');
   }

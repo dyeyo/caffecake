@@ -22,7 +22,7 @@
             href="{{ asset('css/pages/dashboard1.css')}}"
             rel="stylesheet"
         />
-        <link rel="stylesheet" type="text/css" href="hhttps://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     </head>
 
@@ -36,7 +36,7 @@
           @yield('content')
         </div>
       <footer class="footer">
-        © 2018 Eliteadmin by themedesigner.in
+        © 2020 Geostigamemedia SAS
       </footer>
       </div>
       <script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script>

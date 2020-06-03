@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#example").DataTable({
+  $(".example").DataTable({
     language: {
       sProcessing: "Procesando...",
       sLengthMenu: "Mostrar _MENU_ registros",
@@ -34,22 +34,82 @@ $(document).ready(function () {
   });
 });
 
-function renovation_card() {
-  var data = $("#ventaDoce").serialize();
-  var url = route("codeRenovation");
+function countReferences() {
+  let data = $("#searchCode").serialize();
+  let url = route("referideDiscount");
+  let code = $("#codeReferide").val();
+  $("#userReferide").val(code);
 
-  if ($("#ventaDoce").smkValidate()) {
+  if ($("#searchCode").submit()) {
     $.ajax({
       url: url,
       type: "POST",
       data: data,
-      success: function (ans) {
-        if ($.isEmptyObject(ans.error)) {
-          let activacion = document.getElementById("activacion");
-          activacion.innerHTML =
+      success: function (data) {
+        console.log(data);
+        if (data.length > 0) {
+          let count = data.length * 5;
+          $("#totalReferides").append(
+            `<div class='alert alert-success alert-dismissable'>
+              <span>El cliente tiene ${data.length} referidos, para un total de ${count}% de descuento</span>
+            </div>`
+          );
+          $("#btnsearchCode").hide();
+          $("#formPagar").show();
+          setTimeout(function () {
+            $("#totalReferides").fadeOut(1500);
+          }, 3000);
+        }
+      },
+    });
+  }
+}
+
+function renovationCard() {
+  var data = $("#searchCode").serialize();
+  var url = route("referideDiscount");
+  if ($("#searchCode").submit()) {
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      beforeSend: function () {
+        $("#searchCode")[0].reset();
+      },
+      success: function (data) {
+        console.log(data);
+        if (data.length > 0) {
+          let count = data.length * 5;
+          $("#totalReferides").append(
+            `<div class='alert alert-success alert-dismissable'>
+              <span>El cliente tiene ${data.length} referidos, para un total de ${count}% de descuento</span>
+            </div>`
+          );
+          setTimeout(function () {
+            $("#totalReferides").fadeOut(1500);
+          }, 3000);
+        }
+      },
+    });
+  }
+}
+function searchCode() {
+  var data = $("#searchCode").serialize();
+  var url = route("referideDiscount");
+  if ($("#searchCode").smkValidate()) {
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      success: function (data) {
+        console.log(data);
+
+        if ($.isEmptyObject(data.error)) {
+          let alerta = document.getElementById("totalReferides");
+          alerta.innerHTML =
             "<div id='decuento' class='alert alert-success'>Felicades, su tarjeta de cliente frecuente se actualizo</div>";
           setTimeout(function () {
-            $("#activacion").fadeOut(1500);
+            $("#totalReferides").fadeOut(1500);
           }, 3000);
         }
       },

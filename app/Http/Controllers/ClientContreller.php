@@ -16,14 +16,23 @@ class ClientContreller extends Controller
     {
       //$clients = User::with('cartClient')->where('roleId',2)->get();
       $clients = DB::table('users')
-        ->join('client_cards', 'users.id', '=', 'client_cards.userId')
-        ->select('users.id','users.name','users.lastname','users.numIndentificate',
-                'users.mobile','client_cards.codReference', 'client_cards.id',
-                'client_cards.userId','client_cards.created_at')
-        ->where('users.roleId',2)
-        ->get();
-      //dd($clients);
-      return view('clients.index', compact('clients',));
+                  ->Join('client_cards', 'users.id', '=', 'client_cards.userId')
+                  ->select('users.id','users.name','users.lastname','users.numIndentificate',
+                          'users.mobile','client_cards.codReference', 'client_cards.id',
+                          'client_cards.userId','client_cards.created_at')
+                  ->where('users.roleId',2)
+                  ->get();
+
+      $regularclients = DB::table('users')
+                  ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
+                  ->select('users.id','users.name','users.lastname','users.numIndentificate',
+                          'users.mobile')
+                  ->where('users.roleId',2)
+                  ->where('client_cards.userId',null)
+                  ->get();
+      //dd($regularclients[0]);
+
+      return view('clients.index', compact('clients','regularclients'));
     }
 
     public function create()
@@ -82,19 +91,16 @@ class ClientContreller extends Controller
 
     }
 
-    public function referredDiscount(Request $request)
+    public function referideDiscount(Request $request, User $user, ClientCard $clientCard)
     {
-      //dd($request->all());
-      $countCode = DB::table('users')
-                  ->join('client_cards', 'users.id', '=', 'client_cards.userId')
-                  ->select('users.id','users.userReferide','users.name','client_cards.codReference','client_cards.state')
-                  //->where('client_cards.id',$idAuth)
-                  //->where('client_cards.state',1)
-                  ->where('users.userReferide',$request->codeReferide)
-                  ->get();
-      //dd($countCode);
-      //$countCode = response()->json(CuponBuy::where('regularClienteId', $id)->get());
+        $users = $user->where('userReferide', $request->codeReferide)->get(['id','userReferide']);
+        return $users;
+    }
+
+    public function updateUserReferides(Request $request)
+    {
+      User::where('userReferide', 'like', '%'.$request->userReferide.'%')->update(['userReferide'=>null]);
+      Session::flash('message', 'Los el descueto de referidos del cliente fueron tomados con exito');
+      return redirect()->route('home');
     }
 }
-
-

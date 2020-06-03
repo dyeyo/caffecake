@@ -9,7 +9,7 @@
       <div class="d-flex justify-content-end align-items-center">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="javascript:void(0)">Inicio</a>
+            <a href="/home">Inicio</a>
           </li>
           <li class="breadcrumb-item active">Ventas ></li>
         </ol>
@@ -24,12 +24,17 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Lista de Ventas (Clientes frecuentes)</h4>
+          @if(Session::has('messageReferide'))
+          <div class="alert alert-warning">
+            {!! Session::get('messageReferide') !!}
+          </div>
+          @endif
           @if(Session::has('message'))
           <div class="alert alert-success">
             {!! Session::get('message') !!}
           </div>
           @endif
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <table  class="example table table-striped table-bordered" style="width:100%">
             <thead>
               <tr role="row">
                 <th>
@@ -106,7 +111,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Lista de Ventas (Clientes Regulares)</h4>
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <table  class="example table table-striped table-bordered" style="width:100%">
             <thead>
               <tr role="row">
                 <th>
