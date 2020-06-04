@@ -7,7 +7,7 @@ use App\ClientCard;
 use App\CuponBuy;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferenceClients;
@@ -83,6 +83,38 @@ class HomeController extends Controller
     {
       Mail::to($request->emialReferide)->send(new ReferenceClients());
       Session::flash('message', 'El codigo de usario no existe, intenta nuevamente');
+      return redirect()->route('home');
+    }
+
+    public function getUser($id)
+    {
+      $user = User::find($id);
+      //dd($user);
+      return view('editUser',compact('user'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+      $user = User::find($id);
+      //dd($user);
+      if($request->password == ''){
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->numIndentificate = $request->numIndentificate;
+        $user->email = $request->email;
+        $user->userReferide = $request->userReferide;
+        $user->mobile = $request->mobile;
+      } else {
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->numIndentificate = $request->numIndentificate;
+        $user->email = $request->email;
+        $user->userReferide = $request->userReferide;
+        $user->password = Hash::make($request->password);
+        $user->mobile = $request->mobile;
+      }
+      //dd($user);
+      $user->update();
       return redirect()->route('home');
     }
 }

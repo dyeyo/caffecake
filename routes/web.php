@@ -16,10 +16,12 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
+  Route::get('/usuario/edit/{id}', 'HomeController@getUser')->name('getUser');
+  Route::put('/usuario/{id}', 'HomeController@updateUser')->name('updateUser');
   Route::group(['middleware' => ['admin']], function () {
 
     Route::get('/clientes', 'ClientContreller@index')->name('clients');
-    Route::put('/cliente/{user}', 'ClientContreller@delete')->name('deleteUser');
+    Route::delete('/cliente/{user}', 'ClientContreller@delete')->name('deleteUser');
 
     //TARJETA FRECUENTE
     Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');

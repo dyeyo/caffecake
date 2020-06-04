@@ -21,7 +21,7 @@
             <span class="hidden-md-down">
             {{ Auth()->user()->name }} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
             <div class="dropdown-menu dropdown-menu-right animated flipInY">
-              <!-- <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Mi Perfil</a> -->
+              <a href="{{route('getUser',Auth()->user()->id)}}" class="dropdown-item"><i class="ti-user"></i> Mi Perfil</a>
               <div class="dropdown-divider"></div>
               <a href="{{ route('logout') }}" class="dropdown-item">
                 <i class="fa fa-power-off"></i>
