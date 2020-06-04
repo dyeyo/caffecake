@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 
-
-Route::get('/', 'Auth\LoginController@login')->name('login');
+Route::get('/', function () {
+  return view('auth.login');
+});
 Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
 Route::get('/referidos',  'ClientContreller@referide')->name('referide');
 Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
