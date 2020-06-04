@@ -10,28 +10,17 @@
         <title>
             WallCake
         </title>
-
         <link href="{{ asset('js/morrisjs/morris.css')}}" rel="stylesheet" />
-        <link|
-            href="{{ asset('js/toast-master/css/jquery.toast.css')}}"
-            rel="stylesheet"
-        />
         <link href="{{ asset('css/style.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
-        <link
-            href="{{ asset('css/pages/dashboard1.css')}}"
-            rel="stylesheet"
-        />
+        <link href="{{ asset('css/pages/dashboard1.css')}}" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     </head>
 
     <body class="skin-default fixed-layout">
       <div id="main-wrapper">
-
-          @include('layouts.base.nav')
-
-
+        @include('layouts.base.nav')
         <div class="page-wrapper">
           @yield('content')
         </div>
@@ -39,6 +28,7 @@
         © 2020 Geostigamemedia SAS
       </footer>
       </div>
+      <script src="https://kit.fontawesome.com/7e8f963e2a.js" crossorigin="anonymous"></script>
       <script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script>
       <script src="{{ asset ('js/popper/popper.min.js')}}"></script>
       <script src="{{ asset ('js/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -49,8 +39,6 @@
       <script src="{{ asset ('js/raphael/raphael-min.js')}}"></script>
       <script src="{{ asset ('js/morrisjs/morris.min.js')}}"></script>
       <script src="{{ asset ('js/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
-      <script src="{{ asset ('js/toast-master/js/jquery.toast.js')}}"></script>
-      <script src="{{ asset ('js/toast-master/js/jquery.toast.js')}}"></script>
       <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
       <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>

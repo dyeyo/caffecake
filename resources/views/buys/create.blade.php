@@ -54,6 +54,7 @@
                       Codigo de cliente frecuente:
                     </label>
                     <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
+                      <option value="">--SELECCIONE UNA OPCIÓN</option>
                       @foreach($frecuentClients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->codReference }}
@@ -80,6 +81,7 @@
                     </label>
                     @isset($clients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
+                      <option value="">--SELECCIONE UNA OPCIÓN</option>
                       @foreach($clients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->numIndentificate }}

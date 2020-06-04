@@ -54,6 +54,8 @@
             <div class="ml-auto">
               @isset($codReferenceClient)
                 <h2 class="counter text-primary">{{$codReferenceClient}}</h2>
+                <h5>Usted es acreedor de un {{$codReferenceClient * 5}}% de su compra </h5>
+                <p>solicitar su compra desde el area de descuento por referido</p>
               @endisset
             </div>
           </div>
@@ -66,9 +68,17 @@
   <div class="col-md-12">
       <div class="card">
           <div class="card-body">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Agregar Referido
-          </button>
+          @if(Session::has('message'))
+            <div class="alert alert-success">
+              {!! Session::get('message') !!}
+            </div>
+          @endif
+          @isset($codeClient)
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Agregar Referido
+            </button>
+          @endisset
+
               <hr>
               <h5 class="card-title">MIS COMPRAS</h5>
               <table  class="example table table-striped table-bordered" style="width:100%">

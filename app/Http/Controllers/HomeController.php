@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferenceClients;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -81,5 +82,7 @@ class HomeController extends Controller
     public function sendEmail(Request $request)
     {
       Mail::to($request->emialReferide)->send(new ReferenceClients());
+      Session::flash('message', 'El codigo de usario no existe, intenta nuevamente');
+      return redirect()->route('home');
     }
 }

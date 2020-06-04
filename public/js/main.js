@@ -30,7 +30,7 @@ $(document).ready(function () {
   });
   $(".codReference").select2({
     allowClear: true,
-    placeholder: "Seleccine una opcion..",
+    placeholder: "Seleccione una opcion..",
   });
 });
 
