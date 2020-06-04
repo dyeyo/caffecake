@@ -101,7 +101,6 @@
                   @endisset
                   @foreach($purachasesClientRegular as $clientRegular)
                     <tr>
-                      <td class="link">{{ $clientRegular->id }}</td>
                       <td class="link">{{ $clientRegular->name }} {{ $clientRegular->lastname }}</td>
                       <td>{{ $clientRegular->created_at }}</td>
                     </tr>
