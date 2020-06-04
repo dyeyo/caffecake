@@ -12,10 +12,7 @@
             <a href="/home">Inicio</a>
           </li>
           <li class="breadcrumb-item active">Ventas ></li>
-        </ol>
-        <a href="{{route('buys_create')}}" class="btn btn-primary  mr-2">
-          Realizar Venta
-        </a>
+      </ol>
       </div>
     </div>
   </div>
@@ -23,6 +20,10 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
+        <a href="{{route('buys_create')}}" class="btn btn-primary btn-block mr-2">
+          Realizar Venta
+        </a>
+        <br>
           <h4 class="card-title">Lista de Ventas (Clientes frecuentes)</h4>
           @if(Session::has('messageReferide'))
           <div class="alert alert-warning">
