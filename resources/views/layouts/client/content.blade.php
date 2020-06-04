@@ -83,7 +83,7 @@
 
               <hr>
               <h5 class="card-title">MIS COMPRAS</h5>
-              <table  class="example table table-striped table-bordered" style="width:100%">
+              <table  class="table table-striped table-bordered" style="width:100%">
                   <thead>
                     <tr>
                       <th>Codigo Usario / Codigo de Compra</th>
