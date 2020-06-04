@@ -90,7 +90,7 @@
                     <input required
                       type="hidden"
                       name="codReference"
-                      value="{{ Auth()->user()->name}}{{rand(1000,5000) }}"/>
+                      value="{{rand(5000,9999)}}"/>
                     <button
                       class="btn btn-btn-outline-light"
                       type="submit">

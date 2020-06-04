@@ -22,8 +22,6 @@ class ReferenceClients extends Mailable
 
   public function build()
   {
-
-
     $codeUser = ClientCard::select('id','codReference')->where('userId',Auth()->user()->id)->get();
     $onlyCode = $codeUser[0]->codReference;
     //dd($onlyCode);

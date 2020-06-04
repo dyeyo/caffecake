@@ -57,7 +57,7 @@
                           <form class="user"  action="{{route('activateTarjet')}}" method="post">
                             {{ method_field('post') }}
                             {{csrf_field()}}
-                            <input type="hidden" name="codReference" value="{{ $client->name}}{{rand(1,1000) }}">
+                            <input type="hidden" name="codReference" value="{{rand(1000,5000) }}">
                             <input type="hidden" name="state" value="1">
                             <input type="hidden" name="userId" value="{{ $client->id }}">
                             <button class="btn btn-btn-outline-light"  type="submit">ACTIVAR</button>

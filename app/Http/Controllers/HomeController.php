@@ -22,6 +22,8 @@ class HomeController extends Controller
 
     public function index()
     {
+      $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
+      $listClients = User::select('id','numIndentificate')->where('roleId',2)->get();
       $idAuth=Auth()->user()->id;
       $rol=Auth()->user()->roleId;
       if ($rol == 2) {
@@ -75,14 +77,14 @@ class HomeController extends Controller
         $totalBuysEspecial = CuponBuy::count();
         $totalBuys = $totalBuysRegular + $totalBuysEspecial;
         $especialClients = ClientCard::where('state',1)->count();
-        return view('home',compact('clients','especialClients','totalBuys'));
+        return view('home',compact('clients','especialClients','totalBuys','frecuentClients','listClients'));
       }
     }
 
     public function sendEmail(Request $request)
     {
       Mail::to($request->emialReferide)->send(new ReferenceClients());
-      Session::flash('message', 'El codigo de usario no existe, intenta nuevamente');
+      Session::flash('message', 'Correo electronico enviado con exito');
       return redirect()->route('home');
     }
 

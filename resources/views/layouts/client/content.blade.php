@@ -54,8 +54,10 @@
             <div class="ml-auto">
               @isset($codReferenceClient)
                 <h2 class="counter text-primary">{{$codReferenceClient}}</h2>
-                <h5>Usted es acreedor de un {{$codReferenceClient * 5}}% de su compra </h5>
-                <p>solicitar su compra desde el area de descuento por referido</p>
+                @if($codReferenceClient > 0)
+                  <h5>Usted es acreedor de un {{$codReferenceClient * 5}}% de su compra </h5>
+                  <p>solicitar su compra desde el area de descuento por referido</p>
+                @endif
               @endisset
             </div>
           </div>
@@ -84,8 +86,7 @@
               <table  class="example table table-striped table-bordered" style="width:100%">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Nombre Completo</th>
+                      <th>Codigo Usario / Codigo de Compra</th>
                       <th>Fecha de Compra</th>
                     </tr>
                   </thead>
@@ -93,7 +94,6 @@
                   @isset($purachases)
                     @foreach($purachases as $purachase)
                       <tr>
-                        <td class="link">{{ $purachase->id }}</td>
                         <td>{{ $purachase->codReference }}</td>
                         <td>{{ $purachase->created_at }}</td>
                       </tr>
