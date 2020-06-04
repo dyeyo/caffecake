@@ -27,7 +27,7 @@
           <div class="d-flex no-block align-items-center">
             <div>
               <h3><i class="icon-screen-desktop"></i></h3>
-              <p class="text-muted">TOTAL COMPRAS</p>
+              <p class="text-muted">TOTAL COMPRAS TARJETA</p>
             </div>
             <div class="ml-auto">
               @isset($countPurachasesClientRegular)
