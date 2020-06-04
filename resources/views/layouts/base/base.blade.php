@@ -17,6 +17,7 @@
         <link href="{{ asset('css/pages/dashboard1.css')}}" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="{{ asset('css/waffCake.css')}}" rel="stylesheet"/>
     </head>
 
     <body class="skin-default fixed-layout">
