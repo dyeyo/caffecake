@@ -3,16 +3,19 @@
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-  return view('auth.login');
+  if (Auth::check()) {
+    return redirect('/home');
+  } else{
+    return view('auth.login');
+  }
 });
-Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
 Route::get('/referidos',  'ClientContreller@referide')->name('referide');
 Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
-
+  Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
   Route::group(['middleware' => ['admin']], function () {
 
     Route::get('/clientes', 'ClientContreller@index')->name('clients');
