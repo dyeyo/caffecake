@@ -10,6 +10,7 @@
         <title>
             WallCake
         </title>
+        <script src="https://kit.fontawesome.com/7e8f963e2a.js" crossorigin="anonymous"></script>
         <link href="{{ asset('js/morrisjs/morris.css')}}" rel="stylesheet" />
         <link href="{{ asset('css/style.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
@@ -28,7 +29,6 @@
         © 2020 Geostigamemedia SAS
       </footer>
       </div>
-      <script src="https://kit.fontawesome.com/7e8f963e2a.js" crossorigin="anonymous"></script>
       <script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script>
       <script src="{{ asset ('js/popper/popper.min.js')}}"></script>
       <script src="{{ asset ('js/bootstrap/dist/js/bootstrap.min.js')}}"></script>

@@ -6,14 +6,14 @@
           <li class="nav-small-cap">--- TIENDA</li>
           <li>
             <a class="waves-effect waves-dark" href="{{ route('buys') }}" aria-expanded="false">
-              <i class="icon-speedometer"></i><span class="hide-menu">Área de Ventas</span>
+              <i class="icon-speedometer"></i><span class="hide-menu">Listado de Ventas</span>
             </a>
           </li>
 
           <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
             <li>
             <a class="waves-effect waves-dark" href="{{ route('clients') }}" aria-expanded="false">
-              <i class="icon-speedometer"></i><span class="hide-menu">Área de Clientes</span>
+              <i class="icon-speedometer"></i><span class="hide-menu">Consolidado de Clientes</span>
             </a>
           </li>
         @else

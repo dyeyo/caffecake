@@ -192,7 +192,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="btn btn-primary">Realizar Cliente</button>
+                    <button type="submit"  class="btn btn-primary btn-block">Realizar Cliente</button>
                   </div>
                 </form>
               </div>
