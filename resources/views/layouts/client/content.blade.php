@@ -127,7 +127,6 @@
                   <tr>
                     <th>Pregunta</th>
                     <th>Respuesta</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
