@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     //ENCUESTAS
     Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
     Route::post('/encuestas/create', 'SurveysController@store')->name('surveysCreate');
+    Route::post('/encuestas/resultados/{id}', 'SurveysController@surveysResults')->name('surveysResults');
 
   });
 

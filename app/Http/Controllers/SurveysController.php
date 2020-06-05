@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ResponseSurveysExport;
 use App\ResponseSurveys;
 use App\Surveys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SurveysController extends Controller
 {
@@ -28,6 +30,13 @@ class SurveysController extends Controller
     ResponseSurveys::create($request->all());
     Session::flash('encuestaOk','Encuesta enviada con exito, gracias por responder');
     return redirect()->route('home');
+  }
 
+  public function surveysResults(Request $request)
+  {
+    //dd($request->all());
+    return Excel::download(new ResponseSurveysExport ($request->id), 'Resultados.xlsx');
+    //$data = ResponseSurveys::where('surveysId',$id)->get();
+    //dd($data);
   }
 }

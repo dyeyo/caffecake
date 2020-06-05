@@ -51,15 +51,9 @@ class HomeController extends Controller
             }
           }
           $value1->ResponseEncuesta = $this->respondida;
-          //dd($value1);
-            $this->respondida = true;
+          $this->respondida = true;
         }
 
-
-        //$responses = ResponseSurveys::where('userId',$idAuth)->get();
-        //dd($responses);
-       // $idUserResponse = $responses[0]->userId;
-        //$idUserResponse=2;
         $countPurachases = count($purachases);
 
         $purachasesClientRegular = DB::table('users')

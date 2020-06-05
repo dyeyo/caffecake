@@ -34,9 +34,9 @@
                   <tr>
                     <th>Titulo de encuesta</th>
                     <th>Tipo de encuesta</th>
-                    <th>Total de respuestas</th>
                     <th>Estado</th>
-                    <th>Activcar/Desactivar</th>
+                    <th>Ver Resultados</th>
+                    <th>Activar/Desactivar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -44,9 +44,9 @@
                   <tr>
                     <th>Titulo de encuesta</th>
                     <th>Tipo de encuesta</th>
-                    <th>Total de respuestas</th>
                     <th>Estado</th>
-                    <th>Activcar/Desactivar</th>
+                    <th>Ver Resultados</th>
+                    <th>Activar/Desactivar</th>
                     <th>Eliminar</th>
                   </tr>
                 </tfoot>
@@ -55,8 +55,14 @@
                     <tr role="row" class="odd">
                       <td class="sorting_1">{{ $survey->title }}</td>
                       <td>{{ $survey->type == 1 ? 'SI/NO' : 'Calificación por número'}}</td>
-                      <td>{{ $survey->id }}</td>
                       <td>{{ $survey->state == 1 ? 'ACTIVA' : 'DESACTIVADA'}}</td>
+                      <td>
+                        <form class="user"  action="{{route('surveysResults', $survey->id)}}" method="post">
+                          {{csrf_field()}}
+                          <input type="hidden" name="id" value="{{$survey->id}}">
+                          <button class="btn btn-success"  type="submit">Ver Resultados</button>
+                        </form>
+                      </td>
                       <td>
                         @if($survey->state == 2)
                           <form class="user"  action="{{route('activateTarjet')}}" method="post">
@@ -69,6 +75,7 @@
                           <button class="btn btn-btn-outline-light">DESACTIVAR</button>
                         @endif
                       </td>
+
                       <td>
                         <form class="user"  action="{{route('deleteUser', $survey->id)}}" method="post">
                           {{ method_field('delete') }}
