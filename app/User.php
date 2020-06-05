@@ -36,4 +36,9 @@ class  User extends Authenticatable
   {
     return $this->hasMany(BuysGeneral::class,'userId');
   }
+
+  public function responseSurveys()
+  {
+    return $this->hasMany(ResponseSurveys::class);
+  }
 }

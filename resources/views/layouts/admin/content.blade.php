@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
             <div>
-              <h3><i class="icon-screen-desktop"></i></h3>
+              <h3><i class="fas fa-users"></i></h3>
               <p class="text-muted">TOTAL CLIENTES</p>
             </div>
             <div class="ml-auto">
@@ -23,7 +23,7 @@
           <div class="d-flex no-block align-items-center">
             <div>
               <button type="button" class="btn btn-btn-outline-light btn-sm"  data-toggle="modal" data-target="#exampleModal">
-                <h3><i class="icon-eye"></i></h3>
+                <h3><i class="fas fa-crown"></i></h3>
               </button>
               <p class="text-muted">CLIENTE ESPECIALES</p>
             </div>
@@ -41,7 +41,7 @@
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
             <div>
-              <h3><i class="icon-doc"></i></h3>
+              <h3><i class="fas fa-shopping-bag"></i></h3>
               <p class="text-muted">TOTAL VENTAS</p>
             </div>
             <div class="ml-auto">
@@ -96,7 +96,6 @@
                         </option>
                       @endforeach
                     </select>
-                    <input type="hidden" value="{{$client->id}}" name="userId">
                   </div>
                   <div class="form-group">
                     <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>

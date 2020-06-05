@@ -11,10 +11,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferenceClients;
+use App\ResponseSurveys;
+use App\Surveys;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+  private $respondida = true;
     public function __construct()
     {
         $this->middleware('auth');
@@ -28,12 +31,35 @@ class HomeController extends Controller
       $rol=Auth()->user()->roleId;
       if ($rol == 2) {
         $purachases = DB::table('users')
-                  ->join('client_cards', 'users.id', '=', 'client_cards.userId')
-                  ->select('users.id','client_cards.codReference', 'client_cards.id', 'client_cards.userId',
-                          'client_cards.created_at')
-                  ->where('userId',$idAuth)
-                  ->get();
+                      ->join('client_cards', 'users.id', '=', 'client_cards.userId')
+                      ->select('users.id','client_cards.codReference', 'client_cards.id', 'client_cards.userId',
+                              'client_cards.created_at')
+                      ->where('userId',$idAuth)
+                      ->get();
 
+        $surveysActive = Surveys::with('responseSurveys')->where('state',1)->get();
+
+        foreach ($surveysActive as $key => $value1) {
+          $conteo = count($value1->responseSurveys);
+          if($conteo > 0){
+            foreach ($value1->responseSurveys as $key => $value2) {
+              if($value2->userId === $idAuth && $value1->id === $value2->surveysId){
+                $this->respondida = false;
+              }else {
+                $this->respondida = true;
+              }
+            }
+          }
+          $value1->ResponseEncuesta = $this->respondida;
+          //dd($value1);
+            $this->respondida = true;
+        }
+
+
+        //$responses = ResponseSurveys::where('userId',$idAuth)->get();
+        //dd($responses);
+       // $idUserResponse = $responses[0]->userId;
+        //$idUserResponse=2;
         $countPurachases = count($purachases);
 
         $purachasesClientRegular = DB::table('users')
@@ -67,9 +93,12 @@ class HomeController extends Controller
                             ->count();
 
           return view('home',compact('purachases','codeClient','codReferenceClient',
-                                    'purachasesClientRegular','countPurachases'));
+                                    'purachasesClientRegular','countPurachases','surveysActive'));
         }
-        return view('home',compact('purachasesClientRegular','countPurachasesClientRegular'));
+        /*return view('home',compact('purachasesClientRegular','countPurachasesClientRegular',
+                                    'surveysActive','responses','idUserResponse'));*/
+        return view('home',compact('purachasesClientRegular','countPurachasesClientRegular',
+                                    'surveysActive'));
 
       } else {
         $clients = User::where('roleId',2)->count();

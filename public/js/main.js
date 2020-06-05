@@ -93,6 +93,7 @@ function renovationCard() {
     });
   }
 }
+
 function searchCode() {
   var data = $("#searchCode").serialize();
   var url = route("referideDiscount");
@@ -142,4 +143,27 @@ function specialCustomer() {
       }
     });
   }
+}
+
+function createResponseSurvey() {
+  var data = $("#responseSurveys").serialize();
+  console.log(data);
+  var url = route("responseSurveys");
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: data,
+    success: function (data) {
+      $(this).closest("tr").remove();
+      $("#response").html("");
+      $("#response").append(
+        `<div class="alert alert-success">
+        <span>Encuesta enviada con exito, gracias por responder</span>
+        </div>`
+      );
+      setTimeout(function () {
+        $("#response").fadeOut(1500);
+      }, 3000);
+    },
+  });
 }

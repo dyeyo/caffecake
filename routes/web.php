@@ -37,10 +37,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/crear_cliente', 'BuyController@createClient')->name('createClient');
     Route::put('/renovacion_codigo/{user}', 'BuyController@codeRenovation')->name('codeRenovation');
 
+    //ENCUESTAS
+    Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
+    Route::post('/encuestas/create', 'SurveysController@store')->name('surveysCreate');
+
   });
 
   Route::group(['middleware' => ['client']], function () {
     Route::post('/sendemail', 'HomeController@sendEmail')->name('sendemail');
+    //ENCUESTAS
+    Route::post('/encuestas/responder', 'SurveysController@responseSurveys')->name('responseSurveys');
   });
 });
 
