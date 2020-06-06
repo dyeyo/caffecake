@@ -64,20 +64,25 @@
                         </form>
                       </td>
                       <td>
-                        @if($survey->state == 2)
-                          <form class="user"  action="{{route('activateTarjet')}}" method="post">
-                            {{ method_field('post') }}
+                        @if($survey->state == 1)
+                          <form class="user"  action="{{route('stateSurvey',$survey->id)}}" method="post">
+                            {{ method_field('put') }}
                             {{csrf_field()}}
-                            <input type="hidden" name="state" value="1">
-                            <button class="btn btn-primary"  type="submit">ACTIVAR</button>
+                            <input type="hidden" name="state" value="2">
+                            <button class="btn btn-primary"  type="submit">DESACTIVAR</button>
                           </form>
                         @else
-                          <button class="btn btn-btn-outline-light">DESACTIVAR</button>
+                          <form class="user"  action="{{route('stateSurvey',$survey->id)}}" method="post">
+                            {{ method_field('put') }}
+                            {{csrf_field()}}
+                            <input type="hidden" name="state" value="1">
+                            <button class="btn btn-primary"  type="submit">ATIVAR</button>
+                          </form>
                         @endif
                       </td>
 
                       <td>
-                        <form class="user"  action="{{route('deleteUser', $survey->id)}}" method="post">
+                        <form class="user"  action="{{route('deleteSurvy', $survey->id)}}" method="post">
                           {{ method_field('delete') }}
                           {{csrf_field()}}
                           <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>

@@ -24,6 +24,15 @@ class SurveysController extends Controller
     return redirect()->route('allSurveys');
   }
 
+  public function stateSurvey(Request $request, $id)
+  {
+    $state = Surveys::find($id);
+    $state->state = $request->state;
+    //dd($state);
+    $state->update();
+    Session::flash('encuestaOk','Encuesta desactivada');
+    return redirect()->route('allSurveys');
+  }
   public function responseSurveys(Request $request)
   {
     //dd($request->all());
@@ -39,4 +48,11 @@ class SurveysController extends Controller
     //$data = ResponseSurveys::where('surveysId',$id)->get();
     //dd($data);
   }
+
+  public function destroy($id)
+    {
+      Surveys::find($id)->delete();
+      Session::flash('message','LA encuensta se elimino con exito');
+      return redirect()->route('allSurveys');
+    }
 }

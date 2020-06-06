@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
     Route::post('/encuestas/create', 'SurveysController@store')->name('surveysCreate');
     Route::post('/encuestas/resultados/{id}', 'SurveysController@surveysResults')->name('surveysResults');
+    Route::delete('/encuestas/eliminar/{id}', 'SurveysController@destroy')->name('deleteSurvy');
+    Route::put('/encuestas/estado/{id}', 'SurveysController@stateSurvey')->name('stateSurvey');
 
   });
 
