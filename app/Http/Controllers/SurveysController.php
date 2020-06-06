@@ -52,7 +52,7 @@ class SurveysController extends Controller
   public function destroy($id)
     {
       Surveys::find($id)->delete();
-      Session::flash('message','LA encuensta se elimino con exito');
+      Session::flash('message','La encuensta se elimino con exito');
       return redirect()->route('allSurveys');
     }
 }
