@@ -141,11 +141,11 @@
                             @csrf
                               @if($surveys->type == 1)
                                 <label for="SI">SI</label>
-                                <input id="SI" name="response" type="radio" value="SI">
+                                <input id="SI" name="response" required type="radio" value="SI">
                                 <label for="NO">NO</label>
-                                <input id="NO" name="response" type="radio" value="NO">
+                                <input id="NO" name="response" required type="radio" value="NO">
                               @else
-                                <input id="response" name="response" type="text" value="" class="form-control">
+                                <input id="response" required name="response" type="text" value="" class="form-control">
                               @endif
                               <input  name="userId" type="hidden" value="{{Auth()->user()->id}}">
                               <input  name="surveysId" type="hidden" value="{{$surveys->id}}">
