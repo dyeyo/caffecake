@@ -5,15 +5,10 @@
     <p class="loader__label">Elite admin</p>
   </div>
 </div>
-<section
-  id="wrapper"
-  class="login-register login-sidebar"
-  style="
-    background-image: url(https://media.istockphoto.com/photos/waffles-with-fruits-breakfast-background-picture-id891517506);
-  "
->
+<section id="wrapper" class="login-register login-sidebar">
   <div class="login-box card">
     <div class="card-body">
+		<img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake">
       <form
         method="POST"
         class="form-horizontal form-material"
@@ -104,4 +99,4 @@
   </div>
 </section>
 
---}} @endsection
+ @endsection

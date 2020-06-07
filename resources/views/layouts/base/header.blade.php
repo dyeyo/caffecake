@@ -2,12 +2,12 @@
   <nav class="navbar top-navbar navbar-expand-md navbar-dark">
     <div class="navbar-header">
       <a class="navbar-brand" href="/home">
-      <b>
-        <img src="" alt="WaffCake" class="dark-logo">
-        {{--  <img src="" alt="WaffCake" class="light-logo">  --}}
-      </b>
-        <img src="" alt="WaffCake" class="dark-logo">
-        <img src="" class="light-logo" alt="WaffCake"></span> </a>
+      <!--<b>
+        <img src="https://www.waffcake.com/img/logo_wk_01.png" alt="WaffCake" class="dark-logo">
+        <img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake" class="light-logo">
+      </b>-->
+        <span><!--<img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake" class="dark-logo">-->
+        <img src="https://www.waffcake.com/img/logo_wk_02.png" class="light-logo text-center" alt="WaffCake"></span> </a>
     </div>
     <div class="navbar-collapse">
       <ul class="navbar-nav mr-auto">

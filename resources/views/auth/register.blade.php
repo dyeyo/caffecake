@@ -2,10 +2,14 @@
 
 @section('content')
 <div class="container">
+	<a href="https://clientes.waffcake.com"><img src="https://www.waffcake.com/img/logo_wk_02.png" alt="wafecake"></a>
     <div class="row justify-content-center">
+		
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header"><h3>REGISTRO: PROGRAMA DE BENEFICIOS WAFFCAKE</h3>
+					<p>Gana descuentos especiales por tus compras y por recomendar nuestro sabor wafflero, tu nuestra razón de ser!</p>
+				</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
