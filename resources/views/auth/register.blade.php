@@ -85,7 +85,7 @@
                         <div class="form-group row">
                           <label for="password" class="col-md-4 col-form-label text-md-right">Telefono</label>
                           <div class="col-md-6">
-                              <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
+                              <input id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                               @error('mobile')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>

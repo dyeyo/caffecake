@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\CuponBuy;
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Mail\EmailRegister;
+use App\Mail\ReferenceClients;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
@@ -46,16 +49,17 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        return User::create([
-          'name' => $data['name'],
-          'email' => $data['email'],
-          'password' => Hash::make($data['password']),
-          'lastname' => $data['lastname'],
-          'numIndentificate' => $data['numIndentificate'],
-          'mobile' => $data['mobile'],
-          'terminos' => $data['terminos'],
-          'roleId' => 2,
-        ]);
+      Mail::to($data['email'])->send(new EmailRegister());
+      return User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'lastname' => $data['lastname'],
+        'numIndentificate' => $data['numIndentificate'],
+        'mobile' => $data['mobile'],
+        'terminos' => $data['terminos'],
+        'roleId' => 2,
+      ]);
     }
 
 

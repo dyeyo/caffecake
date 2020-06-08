@@ -37,7 +37,13 @@ class HomeController extends Controller
                             'client_cards.created_at')
                     ->where('userId',$idAuth)
                     ->get();
-
+      $purachasesEspecial = DB::table('cupon_buys')
+                    ->join('client_cards', 'cupon_buys.regularClienteId', '=', 'client_cards.id')
+                    // ->select('users.id','client_cards.codReference', 'client_cards.id', 'client_cards.userId',
+                    //         'client_cards.created_at')
+                    ->where('client_cards.userId',$idAuth)
+                    ->get();
+      $conteoPurachasesEspecial = count($purachasesEspecial);
       $surveysActive = Surveys::with('responseSurveys')->where('state',1)->get();
 
       foreach ($surveysActive as $key => $value1) {
@@ -58,14 +64,18 @@ class HomeController extends Controller
       $countPurachases = count($purachases);
 
       $purachasesClientRegular = DB::table('users')
-                ->join('buys_generals', 'users.id', '=', 'buys_generals.userId')
-                ->select('users.id','users.name', 'users.lastname','buys_generals.id', 'buys_generals.userId',
-                        'buys_generals.created_at')
-                ->where('userId',$idAuth)
-                ->get();
+                              ->join('buys_generals', 'users.id', '=', 'buys_generals.userId')
+                              ->select('users.id','users.name', 'users.lastname','buys_generals.id', 'buys_generals.userId',
+                                      'buys_generals.created_at')
+                              ->where('userId',$idAuth)
+                              ->get();
+      //dd($purachasesClientRegular);
+      //$countPurachasesClientRegular = count($purachasesClientRegular);
+      $purachasesClientRegular = CuponBuy::with('clientCard')->count();
+      //dd($purachasesClientRegular);
 
-      $countPurachasesClientRegular = count($purachasesClientRegular);
-
+      $countPurachasesTotal =$countPurachases+$purachasesClientRegular;
+      //dd($countPurachasesTotal);
       $codeClient = ClientCard::select('codReference')
                           ->where('state',1)
                           ->where('userId',$idAuth)
@@ -82,17 +92,16 @@ class HomeController extends Controller
         $codReference = $codeReferenceUser[0];
         $codReferenceClient = DB::table('users')
                           ->leftJoin('buys_generals', 'users.id', '=', 'buys_generals.userId')
-                          ->select('id','userReferide','name','buys_generals.userId','buys_generals.referideComplete')
-                          ->where('buys_generals.referideComplete',1)
+                          ->select('id','userReferide','name','buys_generals.userId')
+                          //->where('buys_generals.referideComplete',1)
                           ->where('userReferide',$codReference->codReference)
                           ->count();
-
-        return view('home',compact('purachases','codeClient','codReferenceClient',
-                                  'purachasesClientRegular','countPurachases','surveysActive'));
+        return view('home',compact('purachases','codeClient','codReferenceClient','conteoPurachasesEspecial',
+                                  'purachasesClientRegular','countPurachases','surveysActive','purachasesEspecial'));
       }
       /*return view('home',compact('purachasesClientRegular','countPurachasesClientRegular',
                                   'surveysActive','responses','idUserResponse'));*/
-      return view('home',compact('purachasesClientRegular','countPurachasesClientRegular',
+      return view('home',compact('purachasesClientRegular','countPurachasesTotal',
                                   'surveysActive'));
 
     } else {
@@ -100,6 +109,7 @@ class HomeController extends Controller
       $totalBuysRegular = BuysGeneral::count();
       $totalBuysEspecial = CuponBuy::count();
       $totalBuys = $totalBuysRegular + $totalBuysEspecial;
+      //dd($totalBuys);
       $especialClients = ClientCard::where('state',1)->count();
       return view('home',compact('clients','especialClients','totalBuys','frecuentClients','listClients'));
     }

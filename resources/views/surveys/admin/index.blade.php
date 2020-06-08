@@ -24,6 +24,7 @@
       <div class="card">
           <div class="card-body">
               <h4 class="card-title">Lista de Encuestas Publicas</h4>
+              <a href="{{route('chartSurvey')}}" class="btn btn-primary" >Ver Resusltado</a>
               <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -32,7 +33,7 @@
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
                     <th>Adiciones</th>
-                    <th>Ver Resultados</th>
+                    <th>Exportar Resultados</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -42,7 +43,7 @@
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
                     <th>Adiciones</th>
-                    <th>Ver Resultados</th>
+                    <th>Exportar Resultados</th>
                   </tr>
                 </tfoot>
                 <tbody>

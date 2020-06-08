@@ -61,7 +61,6 @@
                         </option>
                       @endforeach
                     </select>
-                    <input type="hidden" value="{{$client->id}}" name="userId">
                   </div>
                   <div class="form-group">
                     <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>
@@ -148,7 +147,7 @@
                   <div class="form-group row">
                       <label for="password" class="col-md-12 col-form-label ">Num de Contacto</label>
                       <div class="col-md-12">
-                          <input required id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
+                          <input required id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                           @error('mobile')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

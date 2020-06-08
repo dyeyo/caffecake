@@ -15,26 +15,26 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('surveyPublic') }}">
                         @csrf
-                        <h5>De 1 a 5, como calificas el programa de beneficios waffcake, siendo 1 muy malo y 5 muy bueno</h5>
+                        <h5>De 1 a 5, como calificas el programa de beneficios waffcake, siendo 1 muy MUY malo y 5 muy bueno</h5>
                         <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right">
                             Del 1 al 5 en cúanto calificarias el producto
                           </label>
                           <div class="col-md-6 mt-3">
                             <label class="radio-inline">
-                              <input type="radio" value="1" name="question1">    1
+                              <input type="radio" value="MUY MALO" name="question1">    1
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="2" name="question1">    2
+                              <input type="radio" value="MALO" name="question1">    2
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="3" name="question1">    3
+                              <input type="radio" value="REGULAR" name="question1">    3
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="4" name="question1">    4
+                              <input type="radio" value="BUENO" name="question1">    4
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="5" name="question1">    5
+                              <input type="radio" value="MUY BUENO" name="question1">    5
                             </label>
                           </div>
                         </div>
@@ -45,19 +45,19 @@
                           </label>
                           <div class="col-md-6 mt-3">
                             <label class="radio-inline">
-                              <input type="radio" value="1" name="question2">    1
+                              <input type="radio" value="MUY MALO" name="question2">    1
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="2" name="question2">    2
+                              <input type="radio" value="MALO" name="question2">    2
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="3" name="question2">    3
+                              <input type="radio" value="REGULAR" name="question2">    3
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="4" name="question2">    4
+                              <input type="radio" value="BUENO" name="question2">    4
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="5" name="question2">    5
+                              <input type="radio" value="MUY BUENO" name="question2">    5
                             </label>
                           </div>
                         </div>
@@ -68,19 +68,19 @@
                           </label>
                           <div class="col-md-6 mt-3">
                             <label class="radio-inline">
-                              <input type="radio" value="1" name="question3">    1
+                              <input type="radio" value="MUY MALO" name="question3">    1
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="2" name="question3">    2
+                              <input type="radio" value="MALO" name="question3">    2
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="3" name="question3">    3
+                              <input type="radio" value="REGULAR" name="question3">    3
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="4" name="question3">    4
+                              <input type="radio" value="BUENO" name="question3">    4
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="5" name="question3">    5
+                              <input type="radio" value="MUY BUENO" name="question3">    5
                             </label>
                           </div>
                         </div>
@@ -91,19 +91,19 @@
                           </label>
                           <div class="col-md-6 mt-3">
                             <label class="radio-inline">
-                              <input type="radio" value="1" name="question4">    1
+                              <input type="radio" value="MUY MALO" name="question4">    1
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="2" name="question4">    2
+                              <input type="radio" value="MALO" name="question4">    2
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="3" name="question4">    3
+                              <input type="radio" value="REGULAR" name="question4">    3
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="4" name="question4">    4
+                              <input type="radio" value="BUENO" name="question4">    4
                             </label>
                             <label class="radio-inline">
-                              <input type="radio" value="5" name="question4">    5
+                              <input type="radio" value="MUY BUENO" name="question4">    5
                             </label>
                           </div>
                         </div>

@@ -36,11 +36,8 @@ una compra.</span>
               <span>Recibe el 5% , 10% y hasta el 50% de descuento al acumular tus compras.</span>
             </div>
             <div class="ml-auto">
-              @isset($countPurachasesClientRegular)
-                <h2 class="counter text-primary">{{$countPurachasesClientRegular}}</h2>
-              @endisset
-              @isset($countPurachases)
-                <h2 class="counter text-primary">{{$countPurachases}}</h2>
+              @isset($conteoPurachasesEspecial)
+                <h2 class="counter text-primary">{{ $conteoPurachasesEspecial }}</h2>
               @endisset
             </div>
           </div>
@@ -100,20 +97,15 @@ una compra.</span>
                   </tr>
                 </thead>
                 <tbody>
-                @isset($purachases)
-                  @foreach($purachases as $purachase)
+                @isset($purachasesEspecial)
+                  @foreach($purachasesEspecial as $purachase)
                     <tr>
                       <td>{{ $purachase->codReference }}</td>
                       <td>{{ $purachase->created_at }}</td>
                     </tr>
                   @endforeach
                 @endisset
-                @foreach($purachasesClientRegular as $clientRegular)
-                  <tr>
-                    <td class="link">{{ $clientRegular->name }} {{ $clientRegular->lastname }}</td>
-                    <td>{{ $clientRegular->created_at }}</td>
-                  </tr>
-                @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -147,7 +139,7 @@ una compra.</span>
                       <tr>
                         <td>{{ $surveys->title }}</td>
                         <td>
-                          <form action="{{route('responseSurveys')}}" method="post"  id="responseSurveys">
+                          <form action="{{route('responseSurveys')}}" method="post"  id="responseSurveys" preventDefault();>
                           <!-- <form action="javacript:void(0)" id="responseSurveys" method="POST" name="responseSurveys"> -->
                             @csrf
                               @if($surveys->type == 1)
@@ -156,7 +148,7 @@ una compra.</span>
                                 <label for="NO">NO</label>
                                 <input id="NO" name="response" required type="radio" value="NO">
                               @else
-                                <input id="response" required name="response" type="text" value="" class="form-control">
+                                <input id="response" required name="response" type="number" value="" class="form-control">
                               @endif
                               <input  name="userId" type="hidden" value="{{Auth()->user()->id}}">
                               <input  name="surveysId" type="hidden" value="{{$surveys->id}}">

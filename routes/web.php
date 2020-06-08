@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/encuestas_publicas/resultados/{id}', 'SurveysController@surveysResultsPublic')->name('surveysResultsPublic');
     Route::delete('/encuestas/eliminar/{id}', 'SurveysController@destroy')->name('deleteSurvy');
     Route::put('/encuestas/estado/{id}', 'SurveysController@stateSurvey')->name('stateSurvey');
-    Route::put('/encuestas/grafica/{id}', 'SurveysController@chartSurvey')->name('chartSurvey');
+    Route::get('/encuestas/grafica', 'SurveysController@chartSurvey')->name('chartSurvey');
 
   });
 

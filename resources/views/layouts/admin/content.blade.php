@@ -88,7 +88,7 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de cliente frecuente:
                     </label>
-                    <select required class="codReference"  onchange="specialCustomer()" name="userId" style="width: 100%;">
+                    <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
                       @foreach($frecuentClients as $client)
                         <option value="{{ $client->id }}">
@@ -182,7 +182,7 @@
                   <div class="form-group row">
                       <label for="password" class="col-md-12 col-form-label ">Num de Contacto</label>
                       <div class="col-md-12">
-                          <input required id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
+                          <input required id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                           @error('mobile')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
