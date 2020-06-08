@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ResponseSurveysExport;
+use App\Exports\ResponseSurveysPublicExport;
 use App\ResponseSurveys;
+use App\SurveyPublic;
 use App\Surveys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,8 +16,8 @@ class SurveysController extends Controller
   public function index()
   {
     $surveys = Surveys::all();
-    //$surveysPending = Surveys::where('state',2)->get();
-    return view('surveys.admin.index',compact('surveys'));
+    $surveysPublic = SurveyPublic::all();
+    return view('surveys.admin.index',compact('surveys','surveysPublic'));
   }
 
   public function store(Request $request)
@@ -33,6 +35,7 @@ class SurveysController extends Controller
     Session::flash('encuestaOk','Encuesta desactivada');
     return redirect()->route('allSurveys');
   }
+
   public function responseSurveys(Request $request)
   {
     //dd($request->all());
@@ -43,16 +46,32 @@ class SurveysController extends Controller
 
   public function surveysResults(Request $request)
   {
-    //dd($request->all());
     return Excel::download(new ResponseSurveysExport ($request->id), 'Resultados.xlsx');
-    //$data = ResponseSurveys::where('surveysId',$id)->get();
-    //dd($data);
+  }
+
+  public function surveysResultsPublic(Request $request)
+  {
+    return Excel::download(new ResponseSurveysPublicExport ($request->id), 'Resultados.xlsx');
   }
 
   public function destroy($id)
-    {
-      Surveys::find($id)->delete();
-      Session::flash('message','La encuensta se elimino con exito');
-      return redirect()->route('allSurveys');
-    }
+  {
+    Surveys::find($id)->delete();
+    Session::flash('message','La encuensta se elimino con exito');
+    return redirect()->route('allSurveys');
+  }
+
+  public function surveyPublic(Request $request)
+  {
+    //dd($request->all());
+    SurveyPublic::create($request->all())->save();
+
+    Session::flash('encuesta','Gracias por realizar la encuenta, tu opinion es muy importante para nosotros');
+    return redirect()->route('login');
+  }
+
+  public function chartSurvey($id)
+  {
+    $questionOne = SurveyPublic::where('question1',1)->count();
+  }
 }

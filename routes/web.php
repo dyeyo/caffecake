@@ -10,7 +10,14 @@ Route::get('/', function () {
   }
 });
 Route::get('/referidos',  'ClientContreller@referide')->name('referide');
+Route::get('/terminos_condiciones', function(){
+  return view('terminos_condiciones');
+});
+Route::get('/encuesta', function(){
+  return view('surveysPublic');
+});
 Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
+Route::post('/encuesta/publica', 'SurveysController@surveyPublic')->name('surveyPublic');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
@@ -21,7 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::group(['middleware' => ['admin']], function () {
 
     Route::get('/clientes', 'ClientContreller@index')->name('clients');
-    Route::delete('/cliente/{user}', 'ClientContreller@delete')->name('deleteUser');
+    Route::delete('/cliente/{user}', 'ClientContreller@destroy')->name('deleteUser');
 
     //TARJETA FRECUENTE
     Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');
@@ -41,8 +48,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
     Route::post('/encuestas/create', 'SurveysController@store')->name('surveysCreate');
     Route::post('/encuestas/resultados/{id}', 'SurveysController@surveysResults')->name('surveysResults');
+    Route::post('/encuestas_publicas/resultados/{id}', 'SurveysController@surveysResultsPublic')->name('surveysResultsPublic');
     Route::delete('/encuestas/eliminar/{id}', 'SurveysController@destroy')->name('deleteSurvy');
     Route::put('/encuestas/estado/{id}', 'SurveysController@stateSurvey')->name('stateSurvey');
+    Route::put('/encuestas/grafica/{id}', 'SurveysController@chartSurvey')->name('chartSurvey');
 
   });
 

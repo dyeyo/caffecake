@@ -32,6 +32,22 @@ $(document).ready(function () {
     allowClear: true,
     placeholder: "Seleccione una opcion..",
   });
+  $("#mensajeCodigo").hover(
+    function () {
+      $(this).append(
+        $(`<div id="mensajeCodigo">
+      <span>Este es Tu código del programa, ¡tu identificación! y debe ser
+          presentado siempre que desees hacer un descuento efectivo. Ya seas por
+          compras acumuladas en tarjeta cliente fiel o porque un amigo que referiste hizo
+          una compra.
+      </span>
+    </div>`)
+      );
+    },
+    function () {
+      $(this).find("#mensajeCodigo").last().remove();
+    }
+  );
 });
 
 function countReferences() {

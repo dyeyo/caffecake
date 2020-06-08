@@ -103,4 +103,5 @@ class ClientContreller extends Controller
       Session::flash('message', 'Los el descueto de referidos del cliente fueron tomados con exito');
       return redirect()->route('home');
     }
+
 }

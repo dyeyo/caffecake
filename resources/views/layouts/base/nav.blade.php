@@ -3,6 +3,11 @@
     <nav class="sidebar-nav">
       <ul id="sidebarnav">
         @if(Auth()->user()->roleId == 1)
+          <li>
+            <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false">
+            <i class="fas fa-home"></i><span class="hide-menu">Dashboard</span>
+            </a>
+          </li>
           <li class="nav-small-cap">--- TIENDA</li>
           <li>
             <a class="waves-effect waves-dark" href="{{ route('buys') }}" aria-expanded="false">

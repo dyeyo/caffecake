@@ -39,7 +39,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'terminos' => ['required'],
         ]);
+
     }
 
     protected function create(array $data)
@@ -51,6 +53,7 @@ class RegisterController extends Controller
           'lastname' => $data['lastname'],
           'numIndentificate' => $data['numIndentificate'],
           'mobile' => $data['mobile'],
+          'terminos' => $data['terminos'],
           'roleId' => 2,
         ]);
     }

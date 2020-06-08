@@ -19,6 +19,55 @@
       </div>
     </div>
   </div>
+  <div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Lista de Encuestas Publicas</h4>
+              <table class="example table table-striped table-bordered" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>Calificación el producto</th>
+                    <th>Calificación el servicio</th>
+                    <th>Calificación de la presentación del producto</th>
+                    <th>Calificación de estado del lugar</th>
+                    <th>Adiciones</th>
+                    <th>Ver Resultados</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                  <th>Calificación el producto</th>
+                    <th>Calificación el servicio</th>
+                    <th>Calificación de la presentación del producto</th>
+                    <th>Calificación de estado del lugar</th>
+                    <th>Adiciones</th>
+                    <th>Ver Resultados</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  @foreach($surveysPublic as $surveyPublic)
+                    <tr role="row" class="odd">
+                      <td class="sorting_1">{{ $surveyPublic->question1 }}</td>
+                      <td class="sorting_1">{{ $surveyPublic->question2 }}</td>
+                      <td class="sorting_1">{{ $surveyPublic->question3 }}</td>
+                      <td class="sorting_1">{{ $surveyPublic->question4 }}</td>
+                      <td class="sorting_1">{{ $surveyPublic->additions }}</td>
+                      <td>
+                         <form class="user"  action="{{route('surveysResultsPublic',$surveyPublic->id)}}" method="post">
+                          {{csrf_field()}}
+                          <input type="hidden" name="id" value="{{$surveyPublic->id}}">
+                          <button class="btn btn-success"  type="submit">Ver Resultados</button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+</div>
 <div class="row">
   <div class="col-12">
       <div class="card">
@@ -133,5 +182,7 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 @endsection

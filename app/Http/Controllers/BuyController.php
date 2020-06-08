@@ -53,9 +53,10 @@ class BuyController extends Controller
       Session::flash('message', 'Venta registrada con exito y tarjeta de usuario actualizada');
       return redirect()->route('buys');
     }
-    //dd('else'.$request->userId);
+    //dd($request->all())
     $venta = CuponBuy::create([
-      'regularClienteId'=>$request->regularClienteId
+      'regularClienteId'=>$request->regularClienteId,
+      //'userId'=>$request->userId
     ]);
     $venta->save();
     Session::flash('message', 'Venda registrada con exito');
@@ -65,7 +66,7 @@ class BuyController extends Controller
   public function storeRegular(Request $request)
   {
     //$allBuysGeneral = BuysGeneral::all();
-    //dd($allBuysGeneral);
+    //dd($request->all());
     $codeUser = User::select('id','userReferide')->where('id',$request->userId)->get();
     foreach ($codeUser as $code) {
       $onlyCode = $code->userReferide;
@@ -74,7 +75,6 @@ class BuyController extends Controller
     if (BuysGeneral::where('userId', $request->userId)->exists() || $onlyCode == null) {
       BuysGeneral::create([
         'userId' => $request->userId,
-        'referideComplete' => 0
       ]);
       Session::flash('message', 'Venda registrada con exito');
       return redirect()->route('buys');
@@ -82,7 +82,6 @@ class BuyController extends Controller
 
     BuysGeneral::create([
       'userId' => $request->userId,
-      'referideComplete' => 1
     ]);
 
     Session::flash('messageReferide', 'PRIMERA COMPRA POR REFERIDO, RECLAMAR SU 2% DE DESCUENTO');

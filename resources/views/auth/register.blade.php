@@ -4,13 +4,15 @@
 <div class="container">
 	<a href="https://clientes.waffcake.com"><img src="https://www.waffcake.com/img/logo_wk_02.png" alt="wafecake"></a>
     <div class="row justify-content-center">
-		
+
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><h3>REGISTRO: PROGRAMA DE BENEFICIOS WAFFCAKE</h3>
-					<p>Gana descuentos especiales por tus compras y por recomendar nuestro sabor wafflero, tu nuestra razón de ser!</p>
-				</div>
-
+					        <p>
+                  ¡Bienvenido! Regístrate en 1 solo paso en nuestro programa de
+                  beneficios y disfruta de la delicia del waffle con descuentos especiales!
+                  </p>
+				        </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -91,15 +93,24 @@
                               @enderror
                           </div>
                       </div>
-
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                  Registro
-                                </button>
-                            </div>
+                      <div class="col-lg-12" style="margin-left: 150px;">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="terminos" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">
+                              <a href="/terminos_condiciones" target="_blank">
+                                Aceptar Términos y condiciones
+                              </a>
+                            </label>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                          <button type="submit" class="btn btn-primary">
+                            Inscribirme
+                          </button>
                         </div>
+                      </div>
                     </form>
                 </div>
             </div>

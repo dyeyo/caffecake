@@ -93,6 +93,16 @@
                         @enderror
                       </div>
                     </div>
+                    <div class="col-lg-12" style="margin-left: 150px;">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="terminos" id="customCheck1">
+                            <label class="custom-control-label"  for="customCheck1">
+                              <a href="/terminos_condiciones" target="_blank">
+                                Aceptar Términos y condiciones
+                              </a>
+                            </label>
+                          </div>
+                      </div>
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">

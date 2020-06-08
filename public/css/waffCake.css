@@ -1,8 +1,8 @@
 body {
-    font-family: Poppins,sans-serif;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #50261c;
+  font-family: Poppins, sans-serif;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #50261c;
 }
 .skin-default .topbar {
   background: #50261c;
@@ -15,23 +15,27 @@ img.light-logo {
   padding: 7px;
   max-width: 70%;
 }
-.sidebar-nav ul li a.active, .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover, .sidebar-nav ul li a:hover i {
+.sidebar-nav ul li a.active,
+.sidebar-nav ul li a.active i,
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:hover i {
   color: #50261c;
 }
 a {
   color: #50261c;
 }
-.sidebar-nav>ul>li.active>a {
-    color: #50261c;
-    font-weight: 500;
-    border-left: 3px solid #50261c;
+.sidebar-nav > ul > li.active > a {
+  color: #50261c;
+  font-weight: 500;
+  border-left: 3px solid #50261c;
 }
 .footer {
   color: #c99d63;
   border-top: 1px solid #50261c;
   background: #50261c;
 }
-.left-sidebar, .mega-dropdown .nav-accordion .card-header {
+.left-sidebar,
+.mega-dropdown .nav-accordion .card-header {
   background: #c99d63;
 }
 .sidebar-nav > ul > li > a i {
@@ -51,26 +55,30 @@ a {
 .page-wrapper {
   background: rgb(232, 218, 198);
 }
-#wrapper{
-	background: url("../img/bg.jpg") no-repeat center center;
-	background-size: cover;
-	height: 100vh;
+#wrapper {
+  background: url("../img/bg.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
 }
 .login-sidebar .login-box {
-    right: 0px;
-    position: absolute;
-    height: 100%;
-    background: #50261c;
-    color: #fff;
+  right: 0px;
+  position: absolute;
+  height: 100%;
+  background: #50261c;
+  color: #fff;
 }
-.form-material .form-control, .form-material .form-control.focus, .form-material .form-control:focus {
-    background-image: linear-gradient(#c99d63,#c99d63),linear-gradient(#e9ecef,#e9ecef);
+.form-material .form-control,
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+  background-image: linear-gradient(#c99d63, #c99d63),
+    linear-gradient(#e9ecef, #e9ecef);
 }
-.chatonline li a span, .form-control {
-    color: #ffffff;
+.chatonline li a span,
+.form-control {
+  color: #c99d63;
 }
-.form-control:focus{
-	color: #fff;
+.form-control:focus {
+  color: #c99d63;
 }
 .form-control::-webkit-input-placeholder {
   color: #c99d63;
@@ -88,13 +96,14 @@ a {
   color: #c99d63;
 }
 .btn-info {
-    color: #fff;
-    background-color: #3ea8c0;
-    border-color: #3ea8c0;
+  color: #fff;
+  background-color: #3ea8c0;
+  border-color: #3ea8c0;
 }
 .text-primary {
-    color: #c99d63!important;
+  color: #c99d63 !important;
 }
-a.text-primary:focus, a.text-primary:hover {
-    color: #fff!important;
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #fff !important;
 }

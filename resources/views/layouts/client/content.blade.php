@@ -4,10 +4,15 @@
       <div class="row">
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
-            <div>
+            <div id="codigo">
               <h3><i class="fas fa-crown"></i></h3>
-              <p class="text-muted">CODIGO CLIENTE FRECUENTE</p>
+              <p class=""><b>Tú codigo:</b></p>
+              <span>Tu código del programa, ¡tu identificación! y debe ser
+presentado siempre que desees hacer un descuento efectivo. Ya seas por
+compras acumuladas en tarjeta cliente fiel o porque un amigo que referiste hizo
+una compra.</span>
             </div>
+
             <div class="ml-auto">
             @isset($codeClient)
               @foreach($codeClient as $code )
@@ -27,7 +32,8 @@
           <div class="d-flex no-block align-items-center">
             <div>
               <h3><i class="fas fa-shopping-bag"></i></h3>
-              <p class="text-muted">TOTAL COMPRAS TARJETA</p>
+              <p class=""><b>Tarjeta cliente fiel</b></p>
+              <span>Recibe el 5% , 10% y hasta el 50% de descuento al acumular tus compras.</span>
             </div>
             <div class="ml-auto">
               @isset($countPurachasesClientRegular)
@@ -48,8 +54,10 @@
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
             <div>
-              <h3><i class="fas fa-bullhorn"></i>></h3>
-              <p class="text-muted">TOTAL REFERIDOS</p>
+              <h3><i class="fas fa-bullhorn"></i></h3>
+              <p class=""><b>Pasa la voz waffcake- Referidos</b></p>
+              <span>Gana hasta el 5% de descuento solo con recomendarnos, cada vez que
+                  refieras a un amigo y este haga efectiva una compra</span>
             </div>
             <div class="ml-auto">
               @isset($codReferenceClient)
@@ -82,7 +90,8 @@
         @endisset
 
             <hr>
-            <h5 class="card-title">MIS COMPRAS</h5>
+            <h5 class="card-title">Historial de compras tarjeta cliente fiel</h5>
+            <p>Conoce el historial de tus compras</p>
             <table  class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -121,7 +130,9 @@
             </div>
           @endif
           <hr>
-          <h5 class="card-title">ENCUESTAS</h5>
+          <h5 class="card-title">Tu opinión cuenta</h5>
+          <p>Eres nuestra razón de ser, regálanos tus opiniones para continuar
+            mejorando para ti.</p>
             <table  class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>

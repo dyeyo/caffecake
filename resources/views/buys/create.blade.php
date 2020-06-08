@@ -157,7 +157,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="btn btn-primary">Realizar Cliente</button>
+                    <button type="submit"  class="btn btn-primary">Registrar Cliente</button>
                   </div>
                 </form>
               </div>

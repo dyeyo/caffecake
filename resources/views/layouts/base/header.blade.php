@@ -1,18 +1,17 @@
 <header class="topbar">
   <nav class="navbar top-navbar navbar-expand-md navbar-dark">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/home">
-      <!--<b>
-        <img src="https://www.waffcake.com/img/logo_wk_01.png" alt="WaffCake" class="dark-logo">
+      <a class="navbar-brand" href="#">
+      <b>
         <img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake" class="light-logo">
-      </b>-->
-        <span><!--<img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake" class="dark-logo">-->
-        <img src="https://www.waffcake.com/img/logo_wk_02.png" class="light-logo text-center" alt="WaffCake"></span> </a>
+      </b>
+        <span>
+          <img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake" class="dark-logo"></span> </a>
     </div>
     <div class="navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-sm-none waves-effect waves-dark" href="/home"><i class="ti-menu"></i></a> </li>
-        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="/home"><i class="icon-menu ti-menu"></i></a> </li>
+        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="#"><i class="icon-menu ti-menu"></i></a> </li>
       </ul>
       <ul class="navbar-nav my-lg-0">
         <li class="nav-item dropdown">

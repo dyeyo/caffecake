@@ -88,7 +88,7 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de cliente frecuente:
                     </label>
-                    <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
+                    <select required class="codReference"  onchange="specialCustomer()" name="userId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
                       @foreach($frecuentClients as $client)
                         <option value="{{ $client->id }}">
@@ -191,7 +191,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="btn btn-primary btn-block">Realizar Cliente</button>
+                    <button type="submit"  class="btn btn-primary btn-block">Registrar Cliente</button>
                   </div>
                 </form>
               </div>

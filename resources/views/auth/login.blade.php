@@ -1,13 +1,12 @@
 @extends('layouts.app') @section('content')
-<div class="preloader">
-  <div class="loader">
-    <div class="loader__figure"></div>
-    <p class="loader__label">Elite admin</p>
-  </div>
-</div>
 <section id="wrapper" class="login-register login-sidebar">
   <div class="login-box card">
     <div class="card-body">
+    @if(Session::has('encuesta'))
+      <div class="alert alert-success">
+        {!! Session::get('encuesta') !!}
+      </div>
+    @endif
 		<img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake">
       <form
         method="POST"
