@@ -28,8 +28,23 @@ class HomeController extends Controller
   {
     $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
     $listClients = User::select('id','numIndentificate')->where('roleId',2)->get();
+    // $listClients = DB::table('users')
+    //             ->join('client_cards', 'users.id', '=', 'client_cards.userId')
+    //             ->select('users.id','client_cards.codReference', 'users.numIndentificate',
+    //             'client_cards.id', 'client_cards.userId',
+    //                     'client_cards.created_at')
+    //             ->where('users.roleId',2)
+    //             ->where('client_cards.userId', '!=','users.id')
+    //             ->get();
+    //$listClients = User::with('cartClient')->get();
+    /*foreach ($listClients as $code) {
+     // $onlyCode = $code->cartClient;
+      dd($code);
+
+    }*/
     $idAuth=Auth()->user()->id;
     $rol=Auth()->user()->roleId;
+
     if ($rol == 2) {
       $purachases = DB::table('users')
                     ->join('client_cards', 'users.id', '=', 'client_cards.userId')
@@ -113,6 +128,7 @@ class HomeController extends Controller
       $especialClients = ClientCard::where('state',1)->count();
       return view('home',compact('clients','especialClients','totalBuys','frecuentClients','listClients'));
     }
+
   }
 
   public function sendEmail(Request $request)

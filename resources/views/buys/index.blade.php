@@ -101,9 +101,6 @@
                 <th>
                   Numero de Celular
                 </th>
-                <th>
-                  Acciones
-                </th>
               </tr>
             </thead>
             <tfoot>
@@ -117,9 +114,6 @@
                 <th>
                   Numero de Celular
                 </th>
-                <th>
-                  Acciones
-                </th>
               </tr>
             </tfoot>
             <tbody>
@@ -128,16 +122,6 @@
                 <td>{{$buy->user->name .' '. $buy->user->lastname}}</td>
                 <td>{{$buy->user->numIndentificate}}</td>
                 <td>{{$buy->user->mobile}}</td>
-                <td>
-                  <form class="user"  action="{{route('activateTarjet')}}" method="post">
-                    {{ method_field('post') }}
-                    {{csrf_field()}}
-                    <input type="hidden" name="codReference" value="{{ $buy->user->name}}{{rand(1,1000) }}">
-                    <input type="hidden" name="state" value="1">
-                    <input type="hidden" name="userId" value="{{ $buy->user->id }}">
-                    <button class="btn btn-btn-outline-light"  type="submit">ACTIVAR</button>
-                  </form>
-                </td>
               </tr>
               @endforeach
             </tbody>
