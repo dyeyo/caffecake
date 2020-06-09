@@ -124,7 +124,7 @@
                             <input type="text" class="form-control" name="email" placeholder="Correo Electrónico">
                           </div>
                         </div>
-                        <div class="col-lg-12" style="margin-left: 150px;">
+                        <div class="col-lg-12 " >
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" value="ACEPTO" name="verificate" id="customCheck1">
                             <label class="custom-control-label"  for="customCheck1">

@@ -20,22 +20,25 @@
       <div class="card">
           <div class="card-body">
               <h4 class="card-title">Encuestas Publicas</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <div id="piechart" style="width: 800px; height: 500px;"></div>
+              <div class="conteiner">
+                <div class="row">
+                  <div class="col-md-6">
+                      <div id="piechart" style="width: 600px; height: 500px;"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <div id="piechartSerivices" style="width: 600px; height: 500px;"></div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                  <div id="piechartSerivices" style="width: 800px; height: 500px;"></div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div id="chartPresentacionProduct" style="width: 600px; height: 500px;"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="chartLugar" style="width: 600px; height: 500px;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div id="chartPresentacionProduct" style="width: 800px; height: 500px;"></div>
-                </div>
-                <div class="col-md-6">
-                  <div id="chartLugar" style="width: 800px; height: 500px;"></div>
-                </div>
-              </div>
+
           </div>
       </div>
     </div>
