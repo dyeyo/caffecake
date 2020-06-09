@@ -27,21 +27,16 @@ class HomeController extends Controller
   public function index()
   {
     $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
-    $listClients = User::select('id','numIndentificate')->where('roleId',2)->get();
-    // $listClients = DB::table('users')
-    //             ->join('client_cards', 'users.id', '=', 'client_cards.userId')
-    //             ->select('users.id','client_cards.codReference', 'users.numIndentificate',
-    //             'client_cards.id', 'client_cards.userId',
-    //                     'client_cards.created_at')
-    //             ->where('users.roleId',2)
-    //             ->where('client_cards.userId', '!=','users.id')
-    //             ->get();
-    //$listClients = User::with('cartClient')->get();
-    /*foreach ($listClients as $code) {
-     // $onlyCode = $code->cartClient;
-      dd($code);
-
-    }*/
+    //$listClients = User::select('id','numIndentificate')->where('roleId',2)->get();
+    $listClients = DB::table('users')
+                ->where('roleId',2)
+                ->whereExists(function($query)
+                  {
+                    $query->select(DB::raw(1))
+                            ->from('client_cards')
+                            ->whereRaw('client_cards.userId != users.id');
+                  })
+                ->get();
     $idAuth=Auth()->user()->id;
     $rol=Auth()->user()->roleId;
 

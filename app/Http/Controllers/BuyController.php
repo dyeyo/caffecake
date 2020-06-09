@@ -8,6 +8,7 @@ use App\CuponBuy;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -30,7 +31,16 @@ class BuyController extends Controller
     $frecuentClients = ClientCard::with('user')->where('state',1)->get();
     //dd($frecuentClients);
     $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
-    $clients = User::select('id','numIndentificate')->where('roleId',2)->get();
+    //$clients = User::select('id','numIndentificate')->where('roleId',2)->get();
+    $clients = DB::table('users')
+                ->where('roleId',2)
+                ->whereExists(function($query)
+                  {
+                    $query->select(DB::raw(1))
+                            ->from('client_cards')
+                            ->whereRaw('client_cards.userId != users.id');
+                  })
+                ->get();
     return view('buys.create',compact('clients','frecuentClients'));
   }
 
