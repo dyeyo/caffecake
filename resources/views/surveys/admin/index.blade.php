@@ -25,6 +25,7 @@
           <div class="card-body">
               <h4 class="card-title">Lista de Encuestas Publicas</h4>
               <a href="{{route('chartSurvey')}}" class="btn btn-primary" >Ver Resusltado</a>
+              <a href="{{route('surveysResultsPublic')}}" class="btn btn-success" >Exportar Resusltado</a>
               <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -33,7 +34,6 @@
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
                     <th>Adiciones</th>
-                    <th>Exportar Resultados</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -43,7 +43,6 @@
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
                     <th>Adiciones</th>
-                    <th>Exportar Resultados</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -54,13 +53,6 @@
                       <td class="sorting_1">{{ $surveyPublic->question3 }}</td>
                       <td class="sorting_1">{{ $surveyPublic->question4 }}</td>
                       <td class="sorting_1">{{ $surveyPublic->additions }}</td>
-                      <td>
-                         <form class="user"  action="{{route('surveysResultsPublic',$surveyPublic->id)}}" method="post">
-                          {{csrf_field()}}
-                          <input type="hidden" name="id" value="{{$surveyPublic->id}}">
-                          <button class="btn btn-success"  type="submit">Ver Resultados</button>
-                        </form>
-                      </td>
                     </tr>
                   @endforeach
                 </tbody>

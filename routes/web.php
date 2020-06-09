@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
     Route::post('/encuestas/create', 'SurveysController@store')->name('surveysCreate');
     Route::post('/encuestas/resultados/{id}', 'SurveysController@surveysResults')->name('surveysResults');
-    Route::post('/encuestas_publicas/resultados/{id}', 'SurveysController@surveysResultsPublic')->name('surveysResultsPublic');
+    Route::get('/encuestas_publicas/resultados', 'SurveysController@surveysResultsPublic')->name('surveysResultsPublic');
     Route::delete('/encuestas/eliminar/{id}', 'SurveysController@destroy')->name('deleteSurvy');
     Route::put('/encuestas/estado/{id}', 'SurveysController@stateSurvey')->name('stateSurvey');
     Route::get('/encuestas/grafica', 'SurveysController@chartSurvey')->name('chartSurvey');
