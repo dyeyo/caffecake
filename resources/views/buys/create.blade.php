@@ -37,14 +37,8 @@
             <div class="tab-pane active" id="tabs-1" role="tabpanel">
               <div class="card-body">
                 <div id="alerta"></div>
-                <div id="activacion">
-                  <form id="formActivacion"  action="{{route('activateTarjet')}}" method="post">
-                    {{ method_field('post') }}
-                    {{csrf_field()}}
-                    <input type="hidden" name="codReference" value={{rand(1001,5000) }}">
-                    <input type="hidden" name="state" value="1">
-                    <input type="hidden" name="userId" value="">
-                  </form>
+                <div id='activacion' style="display: none;" class='alert alert-warning'>
+                  La tarjeta del cliente cambiara de codigo.
                 </div>
                 <form class="user" action="{{route('buys_store')}}" method="post">
                   {{ method_field('post') }}
@@ -61,6 +55,8 @@
                         </option>
                       @endforeach
                     </select>
+                    <input type="hidden" name="userId" id="userIdTarjet">
+
                   </div>
                   <div class="form-group">
                     <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>

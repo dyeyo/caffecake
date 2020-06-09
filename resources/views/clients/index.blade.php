@@ -31,7 +31,6 @@
                     <th>Num identificación</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
-                    <th>Activar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -41,7 +40,6 @@
                     <th>Num identificación</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
-                    <th>Activar</th>
                     <th>Eliminar</th>
                   </tr>
                 </tfoot>
@@ -53,21 +51,7 @@
                       <td>{{$client->codReference }}</td>
                       <td>{{$client->mobile }}</td>
                       <td>
-                        @if($client->codReference == '')
-                          <form class="user"  action="{{route('activateTarjet')}}" method="post">
-                            {{ method_field('post') }}
-                            {{csrf_field()}}
-                            <input type="hidden" name="codReference" value="{{rand(1000,5000) }}">
-                            <input type="hidden" name="state" value="1">
-                            <input type="hidden" name="userId" value="{{ $client->id }}">
-                            <button class="btn btn-btn-outline-light"  type="submit">ACTIVAR</button>
-                          </form>
-                        @else
-                          <button class="btn btn-primary" disabled>ACTIVO</button>
-                        @endif
-                      </td>
-                      <td>
-                        <form class="user"  action="{{route('deleteUser', $client->id)}}" method="post">
+                        <form class="user"  action="{{route('deleteUser', $client->userId)}}" method="post">
                           {{ method_field('delete') }}
                           {{csrf_field()}}
                           <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>

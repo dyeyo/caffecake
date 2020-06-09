@@ -138,24 +138,20 @@ function specialCustomer() {
   var codReference = $(".codReference").val();
   if (codReference != 0) {
     $.getJSON(route("loadBuys", { id: codReference }), function (data) {
-      if (data.length == 5) {
+      if (data.length == 4) {
         let alerta = document.getElementById("alerta");
         alerta.innerHTML =
           "<div id='decuento' class='alert alert-success'>Felicades, lleva 5 compras, es acreedor del 5% de descuento</div>";
-      } else if (data.length == 10) {
+      } else if (data.length == 9) {
         let alerta = document.getElementById("alerta");
         alerta.innerHTML =
           "<div id='decuento' class='alert alert-success'>Felicades, lleva 10 compras, es acreedor del 10% de descuento</div>";
-      } else if (data.length == 12) {
+      } else if (data.length == 1) {
+        let idUser = $(".codReference").val();
+        $("#userIdTarjet").val(idUser);
         let alerta_doce = document.getElementById("alerta");
-        alerta_doce.innerHTML =
-          "<div id='decuento' class='alert alert-success'>Felicades, lleva 12 compras, es acreedor del 50% de descuento, y se le actualizara la tarjeta del cliente</div>";
-        if (alerta_doce) {
-          $("#formActivacion").show();
-          $("#noRemovar").click(() => {
-            $("#formActivacion").hide();
-          });
-        }
+        alerta_doce.innerHTML = `<div id='decuento' class='alert alert-success'>Felicades, lleva 12 compras, es acreedor del 50% de descuento, y se le actualizara la tarjeta del cliente</div>`;
+        $("#activacion").show();
       }
     });
   }

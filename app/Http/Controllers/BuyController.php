@@ -27,6 +27,8 @@ class BuyController extends Controller
 
   public function create()
   {
+    $frecuentClients = ClientCard::with('user')->where('state',1)->get();
+    //dd($frecuentClients);
     $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
     $clients = User::select('id','numIndentificate')->where('roleId',2)->get();
     return view('buys.create',compact('clients','frecuentClients'));
@@ -36,16 +38,15 @@ class BuyController extends Controller
   {
     //dd($request->all());
     $countBuys = CuponBuy::where('regularClienteId',$request->regularClienteId)->count();
-    if ($countBuys == 12) {
-      //dd($request->userId);
-      $clietCartState = ClientCard::find($request->userId);
+    if ($countBuys == 1) {
+      $clietCartState = ClientCard::with('user')->find($request->userId);
       $clietCartState->state = 2;
       $clietCartState->update();
       //dd($clietCartState);
       ClientCard::create([
         'codReference' => random_int(1001,5000),
         'state' => 1,
-        'userId' => $request->userId
+        'userId' => $clietCartState->user->id
       ]);
       $venta = CuponBuy::create([
         'regularClienteId'=>$request->regularClienteId
@@ -115,8 +116,4 @@ class BuyController extends Controller
     return redirect()->route('buys');
   }
 
-  public function destroy($id)
-  {
-    //
-  }
 }

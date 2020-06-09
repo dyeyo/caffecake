@@ -50,9 +50,6 @@
                 <th>
                   Codigo de Referencia
                 </th>
-                <th>
-                  Acciones
-                </th>
               </tr>
             </thead>
             <tfoot>
@@ -69,9 +66,7 @@
                 <th>
                   Codigo de Referencia
                 </th>
-                <th>
-                  Acciones
-                </th>
+
               </tr>
             </tfoot>
             <tbody>
@@ -81,24 +76,6 @@
                 <td>{{$buy->clientCard->user->numIndentificate}}</td>
                 <td>{{$buy->clientCard->user->mobile}}</td>
                 <td>{{$buy->clientCard->codReference}}</td>
-                <td>
-                  <form
-                    class="user"
-                    action="{{route('codeRenovation', $buy->clientCard->user->id)}}"
-                    method="post">
-                    {{ method_field("put") }}
-                    {{ csrf_field() }}
-                    <input required
-                      type="hidden"
-                      name="codReference"
-                      value="{{rand(5000,9999)}}"/>
-                    <button
-                      class="btn btn-btn-outline-light"
-                      type="submit">
-                      RENOVAR
-                    </button>
-                  </form>
-                </td>
               </tr>
               @endforeach
             </tbody>
