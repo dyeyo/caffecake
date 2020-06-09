@@ -33,7 +33,6 @@
                     <th>Calificación el servicio</th>
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
-                    <th>Adiciones</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -42,7 +41,6 @@
                     <th>Calificación el servicio</th>
                     <th>Calificación de la presentación del producto</th>
                     <th>Calificación de estado del lugar</th>
-                    <th>Adiciones</th>
                   </tr>
                 </tfoot>
                 <tbody>
