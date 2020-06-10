@@ -28,13 +28,14 @@ class HomeController extends Controller
   {
     $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
     //$listClients = User::select('id','numIndentificate')->where('roleId',2)->get();
+
     $listClients = DB::table('users')
                 ->where('roleId',2)
-                ->whereExists(function($query)
+                ->whereNotExists(function($query)
                   {
                     $query->select(DB::raw(1))
-                            ->from('client_cards')
-                            ->whereRaw('client_cards.userId != users.id');
+                          ->from('client_cards')
+                          ->whereRaw('client_cards.userId = users.id');
                   })
                 ->get();
     $idAuth=Auth()->user()->id;

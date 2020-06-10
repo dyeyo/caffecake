@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::group(['middleware' => ['client']], function () {
     Route::post('/sendemail', 'HomeController@sendEmail')->name('sendemail');
+    //Route::post('/sendemail{onlyCode}', 'HomeController@sendEmail')->name('sendemail');
     //ENCUESTAS
     Route::post('/encuestas/responder', 'SurveysController@responseSurveys')->name('responseSurveys');
   });

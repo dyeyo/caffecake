@@ -34,13 +34,14 @@ class BuyController extends Controller
     //$clients = User::select('id','numIndentificate')->where('roleId',2)->get();
     $clients = DB::table('users')
                 ->where('roleId',2)
-                ->whereExists(function($query)
+                ->whereNotExists(function($query)
                   {
                     $query->select(DB::raw(1))
-                            ->from('client_cards')
-                            ->whereRaw('client_cards.userId != users.id');
+                          ->from('client_cards')
+                          ->whereRaw('client_cards.userId = users.id');
                   })
                 ->get();
+    //dd($clients);
     return view('buys.create',compact('clients','frecuentClients'));
   }
 
@@ -78,9 +79,13 @@ class BuyController extends Controller
   {
     //$allBuysGeneral = BuysGeneral::all();
     //dd($request->all());
-    $codeUser = User::select('id','userReferide')->where('id',$request->userId)->get();
+    $codeUser = User::select('id','userReferide','name')->where('id',$request->userId)->get();
+    //dd($codeUser);
     foreach ($codeUser as $code) {
       $onlyCode = $code->userReferide;
+    }
+    foreach ($codeUser as $code) {
+      $onlyName = $code->name;
     }
 
     if (BuysGeneral::where('userId', $request->userId)->exists() || $onlyCode == null) {
@@ -88,12 +93,19 @@ class BuyController extends Controller
         'userId' => $request->userId,
       ]);
       Session::flash('message', 'Venda registrada con exito');
+      ClientCard::create([
+        'codReference'=>$onlyName.rand(1,1000),
+        'state'=>1,
+        'userId'=>$request->userId,
+      ]);
       return redirect()->route('buys');
     }
 
     BuysGeneral::create([
       'userId' => $request->userId,
     ]);
+
+
 
     Session::flash('messageReferide', 'PRIMERA COMPRA POR REFERIDO, RECLAMAR SU 2% DE DESCUENTO');
     Session::flash('message', 'Venda registrada con exito');

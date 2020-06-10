@@ -24,7 +24,6 @@ class ReferenceClients extends Mailable
   {
     $codeUser = ClientCard::select('id','codReference')->where('userId',Auth()->user()->id)->get();
     $onlyCode = $codeUser[0]->codReference;
-    //dd($onlyCode);
     return $this->view('sendEmail',compact('onlyCode'));
   }
 }

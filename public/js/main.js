@@ -146,7 +146,7 @@ function specialCustomer() {
         let alerta = document.getElementById("alerta");
         alerta.innerHTML =
           "<div id='decuento' class='alert alert-success'>Felicades, lleva 10 compras, es acreedor del 10% de descuento</div>";
-      } else if (data.length == 1) {
+      } else if (data.length == 11) {
         let idUser = $(".codReference").val();
         $("#userIdTarjet").val(idUser);
         let alerta_doce = document.getElementById("alerta");
