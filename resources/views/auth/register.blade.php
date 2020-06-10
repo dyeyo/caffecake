@@ -42,7 +42,7 @@
                         <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right">Num Indentificación</label>
                           <div class="col-md-6">
-                              <input id="numIndentificate" type="text" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
+                              <input id="numIndentificate" type="number" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
                               @error('numIndentificate')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -97,7 +97,7 @@
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="terminos" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">
-                              <a href="/terminos_condiciones" target="_blank">
+                              <a href="{{route('terminos_condicones')}}" target="_blank">
                                 Aceptar Términos y condiciones
                               </a>
                             </label>

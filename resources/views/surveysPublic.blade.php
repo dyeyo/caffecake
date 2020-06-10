@@ -15,7 +15,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('surveyPublic') }}">
                         @csrf
-                        <h5>De 1 a 5, como calificas el programa de beneficios waffcake, siendo 1 muy MUY malo y 5 muy bueno</h5>
                         <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right">
                             Del 1 al 5 en cúanto calificarias el producto

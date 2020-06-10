@@ -10,14 +10,12 @@ Route::get('/', function () {
   }
 });
 Route::get('/referidos',  'ClientContreller@referide')->name('referide');
-Route::get('/terminos_condiciones', function(){
-  return view('terminos_condiciones');
-});
 Route::get('/encuesta', function(){
   return view('surveysPublic');
 });
 Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
 Route::post('/encuesta/publica', 'SurveysController@surveyPublic')->name('surveyPublic');
+Route::get('/terminos_condicones', 'ClientContreller@terminosCondiciones')->name('terminos_condicones');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {

@@ -55,6 +55,11 @@ una compra.</span>
               <p class=""><b>Pasa la voz waffcake- Referidos</b></p>
               <span>Gana hasta el 5% de descuento solo con recomendarnos, cada vez que
                   refieras a un amigo y este haga efectiva una compra</span>
+                  @isset($codeClient)
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      Agregar Referido
+                    </button>
+                  @endisset
             </div>
             <div class="ml-auto">
               @isset($codReferenceClient)
@@ -80,11 +85,7 @@ una compra.</span>
             {!! Session::get('message') !!}
           </div>
         @endif
-        @isset($codeClient)
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Agregar Referido
-          </button>
-        @endisset
+
 
             <hr>
             <h5 class="card-title">Historial de compras tarjeta cliente fiel</h5>

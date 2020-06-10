@@ -16,13 +16,13 @@ class CreateSurveyPublicsTable extends Migration
         Schema::create('survey_publics', function (Blueprint $table) {
           $table->bigIncrements('id');
 
-          $table->string('question1');
-          $table->string('question2');
-          $table->string('question3');
-          $table->string('question4');
-          $table->string('additions');
-          $table->string('email');
-          $table->string('verificate');
+          $table->string('question1')->nullable();
+          $table->string('question2')->nullable();
+          $table->string('question3')->nullable();
+          $table->string('question4')->nullable();
+          $table->string('additions')->nullable();
+          $table->string('email')->nullable();
+          $table->string('verificate')->nullable();
 
           $table->timestamps();
         });

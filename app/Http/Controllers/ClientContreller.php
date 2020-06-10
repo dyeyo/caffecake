@@ -100,4 +100,9 @@ class ClientContreller extends Controller
     return redirect()->route('home');
   }
 
+  public function terminosCondiciones()
+  {
+    $pdf = \PDF::loadView('terminos_condiciones');
+    return $pdf->download('terminos_condiciones.pdf');
+  }
 }

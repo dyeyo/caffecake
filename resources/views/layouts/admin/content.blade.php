@@ -160,7 +160,7 @@
                   <div class="form-group row">
                     <label for="name" class="col-md-12 col-form-label ">Num Indentificación</label>
                     <div class="col-md-12">
-                      <input required id="numIndentificate" type="text" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
+                      <input required id="numIndentificate" type="number" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
                       @error('numIndentificate')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
