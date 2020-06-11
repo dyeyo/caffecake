@@ -65,9 +65,7 @@ class SurveysController extends Controller
   {
     //dd($request->all());
     SurveyPublic::create($request->all())->save();
-
-    Session::flash('encuesta','Gracias por realizar la encuenta, tu opinion es muy importante para nosotros');
-    return redirect()->route('login');
+    return  redirect()->away('https://www.waffcake.com');
   }
 
   public function chartSurvey()

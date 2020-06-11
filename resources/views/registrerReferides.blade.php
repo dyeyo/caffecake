@@ -18,7 +18,7 @@
                     <div class="form-group row">
                       <label for="userReferide" class="col-md-4 col-form-label text-md-right">Codigo de usuario</label>
                       <div class="col-md-6">
-                        <input id="userReferide" disabled type="text" value="<?php echo $_GET["onlyCode"]; ?>"  class="form-control" name="userReferide" required>
+                        <input id="userReferide" type="text" value="<?php echo $_GET["onlyCode"]; ?>"  class="form-control" name="userReferide" required>
                       </div>
                     </div>
                     <div class="form-group row">
