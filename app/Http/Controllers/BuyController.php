@@ -69,7 +69,7 @@ class BuyController extends Controller
     ]);
     $venta->save();
     Session::flash('message', 'Venda registrada con exito');
-    return redirect()->route('buys');
+    return redirect()->route('home');
   }
 
   public function storeRegular(Request $request)
@@ -92,7 +92,7 @@ class BuyController extends Controller
         'state'=>1,
         'userId'=>$request->userId,
       ]);
-      return redirect()->route('buys');
+      return redirect()->route('home');
     }
 
     BuysGeneral::create([
