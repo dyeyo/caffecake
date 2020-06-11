@@ -17,7 +17,7 @@ class ClientContreller extends Controller
   {
     $clients = DB::table('users')
                 ->Join('client_cards', 'users.id', '=', 'client_cards.userId')
-                ->select('users.id','users.name','users.lastname','users.numIndentificate',
+                ->select('users.id','users.email','users.name','users.lastname','users.numIndentificate',
                         'users.mobile','client_cards.codReference', 'client_cards.id',
                         'client_cards.userId','client_cards.created_at')
                 ->where('users.roleId',2)
@@ -26,7 +26,7 @@ class ClientContreller extends Controller
 
     $regularclients = DB::table('users')
                 ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
-                ->select('users.id','users.name','users.lastname','users.numIndentificate',
+                ->select('users.id','users.email','users.name','users.lastname','users.numIndentificate',
                         'users.mobile')
                 ->where('users.roleId',2)
                 ->where('client_cards.userId',null)
