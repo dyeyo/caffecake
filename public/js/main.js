@@ -75,6 +75,12 @@ function countReferences() {
           setTimeout(function () {
             $("#totalReferides").fadeOut(1500);
           }, 3000);
+        } else {
+          $("#totalReferides").append(
+            `<div class='alert alert-danger alert-dismissable'>
+              <span>Codigo sin puntos por redenir</span>
+            </div>`
+          );
         }
       },
     });
