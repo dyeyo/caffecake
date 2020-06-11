@@ -60,7 +60,7 @@
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Buscar cliente frecuente</a>
+              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Buscar cliente fiel</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Buscar cliente nuevos</a>
@@ -92,7 +92,7 @@
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de cliente frecuente:
+                      Codigo de tarjeta cliente fiel:
                     </label>
                     <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
