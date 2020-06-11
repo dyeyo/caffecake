@@ -55,7 +55,6 @@
 </div>
 <div class="row">
     <div class="col-12">
-
       <div class="card">
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
@@ -154,8 +153,12 @@
                       @error('name')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         </span>
                       @enderror
+
                     </div>
                   </div>
                   <div class="form-group row">

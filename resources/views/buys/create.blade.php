@@ -37,15 +37,27 @@
             <div class="tab-pane active" id="tabs-1" role="tabpanel">
               <div class="card-body">
                 <div id="alerta"></div>
-                <div id='activacion' style="display: none;" class='alert alert-warning'>
-                  La tarjeta del cliente cambiara de codigo.
+                @if(Session::has('message'))
+                  <div class="alert alert-success">
+                    {!! Session::get('message') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  </div>
+                @endif
+                <div id="activacion">
+                  <form id="formActivacion"  action="{{route('activateTarjet')}}" method="post">
+                    {{ method_field('post') }}
+                    {{csrf_field()}}
+                    <input type="hidden" name="codReference" value={{rand(1001,5000) }}">
+                    <input type="hidden" name="state" value="1">
+                    <input type="hidden" name="userId" value="">
+                  </form>
                 </div>
                 <form class="user" action="{{route('buys_store')}}" method="post">
                   {{ method_field('post') }}
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de cliente fiel:
+                      Codigo de tarjeta cliente fiel:
                     </label>
                     <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
@@ -55,17 +67,21 @@
                         </option>
                       @endforeach
                     </select>
-
                   </div>
                   <div class="form-group">
-                    <button type="submit" id="ventaDoce" class="botonalerta btn btn-primary">Realizar Venta</button>
+                    <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>
                   </div>
                 </form>
               </div>
             </div>
             <div class="tab-pane" id="tabs-2" role="tabpanel">
               <div class="card-body">
-                <!-- <div id="alerta"></div> -->
+              @if(Session::has('message'))
+                <div class="alert alert-success">
+                  {!! Session::get('message') !!}
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                </div>
+              @endif
                 <form class="user"  action="{{route('buys_storeRegular')}}" method="post">
                   {{ method_field('post') }}
                   {{csrf_field()}}
@@ -73,10 +89,10 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de cliente por Indentificación
                     </label>
-                    @isset($clients)
+                    @isset($listClients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
-                      @foreach($clients as $client)
+                      @foreach($listClients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->numIndentificate }}
                         </option>
@@ -85,7 +101,7 @@
                     @endisset
                   </div>
                   <div class="form-group">
-                    <button type="submit"  class="botonalerta btn btn-primary">Realizar Venta</button>
+                    <button type="submit"  class="btn btn-primary">Realizar Venta</button>
                   </div>
                 </form>
               </div>
@@ -102,8 +118,12 @@
                       @error('name')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         </span>
                       @enderror
+
                     </div>
                   </div>
                   <div class="form-group row">
@@ -151,7 +171,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="botonalerta btn btn-primary">Registrar Cliente</button>
+                    <button type="submit"  class="btn btn-primary btn-block">Registrar Cliente</button>
                   </div>
                 </form>
               </div>
@@ -161,18 +181,6 @@
       </div>
     </div>
   </div>
+
 </div>
-
-<script>
-  $(document).ready(function () {
-  if ($(".alert alert-success")) {
-    // Siempre será validado, incluso si #undiv no existe
-    alert("sdad");
-    setTimeout(function () {
-      $(".alert alert-success").fadeOut(1500);
-    }, 3000);
-  }
-});
-
-</script>
 @endsection
