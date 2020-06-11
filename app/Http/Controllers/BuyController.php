@@ -60,7 +60,7 @@ class BuyController extends Controller
         'regularClienteId'=>$request->regularClienteId
       ]);
       Session::flash('message', 'Venta registrada con exito y tarjeta de usuario actualizada');
-      return redirect()->route('buys');
+      return redirect()->route('home');
     }
     //dd($request->all());
     $venta = CuponBuy::create([

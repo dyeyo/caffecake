@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/clientes', 'ClientContreller@index')->name('clients');
     Route::delete('/cliente/{user}', 'ClientContreller@destroy')->name('deleteUser');
 
-    //TARJETA FRECUENTE
+    //TARJETA Fiel
     Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');
     Route::post('/referideDiscount', 'ClientContreller@referideDiscount')->name('referideDiscount');
     Route::post('/updateUserReferides', 'ClientContreller@updateUserReferides')->name('updateUserReferides');

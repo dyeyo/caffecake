@@ -46,7 +46,7 @@ class ClientContreller extends Controller
     $tarjet->state = $request->state;
     $tarjet->userId = $request->userId;
     $tarjet->save();
-    Session::flash('message', 'Cliente  frecuente actualizado con exito');
+    Session::flash('message', 'Cliente fiel actualizado con exito');
     return redirect()->route('clients');
   }
 

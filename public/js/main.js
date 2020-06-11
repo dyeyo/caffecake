@@ -130,7 +130,7 @@ function searchCode() {
         if ($.isEmptyObject(data.error)) {
           let alerta = document.getElementById("totalReferides");
           alerta.innerHTML =
-            "<div id='decuento' class='alert alert-success'>Felicades, su tarjeta de cliente frecuente se actualizo</div>";
+            "<div id='decuento' class='alert alert-success'>Felicades, su tarjeta de cliente fiel se actualizo</div>";
           setTimeout(function () {
             $("#totalReferides").fadeOut(1500);
           }, 3000);
@@ -147,16 +147,25 @@ function specialCustomer() {
       if (data.length == 4) {
         let alerta = document.getElementById("alerta");
         alerta.innerHTML =
-          "<div id='decuento' class='alert alert-success'>Felicades, lleva 5 compras, es acreedor del 5% de descuento</div>";
+          "<div id='decuento' class='alert alert-success'>Felicades, lleva 5 compras, es acreedor al 5% de descuento</div>";
+        setTimeout(function () {
+          $("#decuento").fadeOut(3000);
+        }, 3000);
       } else if (data.length == 9) {
         let alerta = document.getElementById("alerta");
         alerta.innerHTML =
-          "<div id='decuento' class='alert alert-success'>Felicades, lleva 10 compras, es acreedor del 10% de descuento</div>";
+          "<div id='decuento' class='alert alert-success'>Felicades, lleva 10 compras, eres acreedor al 10% de descuento</div>";
+        setTimeout(function () {
+          $("#decuento").fadeOut(3000);
+        }, 3000);
       } else if (data.length == 11) {
         let idUser = $(".codReference").val();
         $("#userIdTarjet").val(idUser);
         let alerta_doce = document.getElementById("alerta");
-        alerta_doce.innerHTML = `<div id='decuento' class='alert alert-success'>Felicades, lleva 12 compras, es acreedor del 50% de descuento, y se le actualizara la tarjeta del cliente</div>`;
+        alerta_doce.innerHTML = `<div id='decuento' class='alert alert-success'>Felicades, lleva 12 compras, eres acreedor al 50% de descuento, y se le actualizara la tarjeta del cliente</div>`;
+        setTimeout(function () {
+          $("#decuento").fadeOut(3000);
+        }, 3000);
         $("#activacion").show();
       }
     });
@@ -185,3 +194,6 @@ function createResponseSurvey() {
     },
   });
 }
+$(".").setTimeout(function () {
+  $(".alert-success").fadeOut(1500);
+}, 3000);
