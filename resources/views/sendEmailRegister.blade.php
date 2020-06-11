@@ -7,7 +7,7 @@
 </head>
 <body>
   Bienvenido a Waffcafe, ya estas registrado, puedes empezar a obtener tus beneficios
-  <a href="http://127.0.0.1:8000/login">
+  <a href="https://clientes.waffcake.com/login">
     Aqui
   </a>
 </body>

@@ -63,7 +63,6 @@ class SurveysController extends Controller
 
   public function surveyPublic(Request $request)
   {
-    //dd($request->all());
     SurveyPublic::create($request->all())->save();
     return  redirect()->away('https://www.waffcake.com');
   }
