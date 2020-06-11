@@ -25,7 +25,7 @@
               <button type="button" class="btn btn-btn-outline-light btn-sm"  data-toggle="modal" data-target="#exampleModal">
                 <h3><i class="fas fa-crown"></i></h3>
               </button>
-              <p class="text-muted">REREDIMIR PUNTOS DE CLIENTES ESPECIALES</p>
+              <p class="text-muted">REDIMIR PUNTOS REFERIDOS</p>
             </div>
             <div class="ml-auto">
               <h2 class="counter text-cyan">{{$especialClients}}</h2>
