@@ -76,6 +76,7 @@
                 @if(Session::has('message'))
                   <div class="alert alert-success">
                     {!! Session::get('message') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   </div>
                 @endif
                 <div id="activacion">
@@ -114,6 +115,7 @@
               @if(Session::has('message'))
                 <div class="alert alert-success">
                   {!! Session::get('message') !!}
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 </div>
               @endif
                 <form class="user"  action="{{route('buys_storeRegular')}}" method="post">
@@ -242,3 +244,6 @@
     </div>
   </div>
 </div>
+<script>
+
+</script>

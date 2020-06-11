@@ -18,7 +18,7 @@
   <div class="col-12">
       <div class="card">
           <div class="card-body">
-              <h4 class="card-title">Lista de Clientes (Fiel)</h4>
+              <h4 class="card-title">Listado de Clientes Fieles</h4>
               @if(Session::has('message'))
                 <div class="alert alert-success">
                   {!! Session::get('message') !!}
@@ -72,7 +72,7 @@
   <div class="col-12">
       <div class="card">
           <div class="card-body">
-              <h4 class="card-title">Lista de Clientes Frecuentes</h4>
+              <h4 class="card-title">Lista de Clientes Nuevos</h4>
               @if(Session::has('message'))
                 <div class="alert alert-success">
                   {!! Session::get('message') !!}

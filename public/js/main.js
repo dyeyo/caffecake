@@ -48,6 +48,17 @@ $(document).ready(function () {
       $(this).find("#mensajeCodigo").last().remove();
     }
   );
+  $(document).ready(function () {
+    let alerta = $(".close").length;
+    if (alerta == 1) {
+      console.log("alerta1", alerta);
+    } else {
+      setTimeout(function () {
+        $(".alert-success").fadeOut(1500);
+      }, 3000);
+      console.log("alerta2", alerta);
+    }
+  });
 });
 
 function countReferences() {
@@ -81,6 +92,9 @@ function countReferences() {
               <span>Codigo sin puntos por redenir</span>
             </div>`
           );
+          setTimeout(function () {
+            $("#totalReferides").fadeOut(1500);
+          }, 3000);
         }
       },
     });
@@ -194,6 +208,3 @@ function createResponseSurvey() {
     },
   });
 }
-$(".").setTimeout(function () {
-  $(".alert-success").fadeOut(1500);
-}, 3000);

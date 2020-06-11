@@ -58,7 +58,7 @@
 
                   </div>
                   <div class="form-group">
-                    <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>
+                    <button type="submit" id="ventaDoce" class="botonalerta btn btn-primary">Realizar Venta</button>
                   </div>
                 </form>
               </div>
@@ -85,7 +85,7 @@
                     @endisset
                   </div>
                   <div class="form-group">
-                    <button type="submit"  class="btn btn-primary">Realizar Venta</button>
+                    <button type="submit"  class="botonalerta btn btn-primary">Realizar Venta</button>
                   </div>
                 </form>
               </div>
@@ -151,7 +151,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="btn btn-primary">Registrar Cliente</button>
+                    <button type="submit"  class="botonalerta btn btn-primary">Registrar Cliente</button>
                   </div>
                 </form>
               </div>
@@ -162,4 +162,17 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+  if ($(".alert alert-success")) {
+    // Siempre será validado, incluso si #undiv no existe
+    alert("sdad");
+    setTimeout(function () {
+      $(".alert alert-success").fadeOut(1500);
+    }, 3000);
+  }
+});
+
+</script>
 @endsection
