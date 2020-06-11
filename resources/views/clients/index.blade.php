@@ -29,6 +29,7 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
+                    <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
                     <th>Eliminar</th>
@@ -38,6 +39,7 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
+                    <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
                     <th>Eliminar</th>
@@ -50,6 +52,7 @@
                       <td>{{$client->numIndentificate }}</td>
                       <td>{{$client->codReference }}</td>
                       <td>{{$client->mobile }}</td>
+                      <td>{{$client->email }}</td>
                       <td>
                         <form class="user"  action="{{route('deleteUser', $client->userId)}}" method="post">
                           {{ method_field('delete') }}

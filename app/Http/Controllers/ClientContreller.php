@@ -21,6 +21,7 @@ class ClientContreller extends Controller
                         'users.mobile','client_cards.codReference', 'client_cards.id',
                         'client_cards.userId','client_cards.created_at')
                 ->where('users.roleId',2)
+                ->where('client_cards.state',1)
                 ->get();
 
     $regularclients = DB::table('users')
