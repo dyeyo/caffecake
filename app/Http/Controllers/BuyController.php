@@ -68,7 +68,7 @@ class BuyController extends Controller
       //'userId'=>$request->userId
     ]);
     $venta->save();
-    Session::flash('message', 'Venda registrada con exito');
+    Session::flash('message', 'Venta registrada con exito');
     return redirect()->route('home');
   }
 
@@ -86,7 +86,7 @@ class BuyController extends Controller
       BuysGeneral::create([
         'userId' => $request->userId,
       ]);
-      Session::flash('message', 'Venda registrada con exito');
+      Session::flash('message', 'Venta registrada con exito');
       ClientCard::create([
         'codReference'=>rand(1000,9999),
         'state'=>1,
@@ -100,7 +100,7 @@ class BuyController extends Controller
     ]);
 
     Session::flash('messageReferide', 'PRIMERA COMPRA POR REFERIDO, RECLAMAR SU 2% DE DESCUENTO');
-    Session::flash('message', 'Venda registrada con exito');
+    Session::flash('message', 'Venta registrada con exito');
     return redirect()->route('buys');
   }
 
