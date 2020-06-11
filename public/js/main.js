@@ -74,27 +74,33 @@ function countReferences() {
       data: data,
       success: function (data) {
         console.log(data);
-        if (data.length > 0) {
-          let count = data.length * 5;
-          $("#totalReferides").append(
-            `<div class='alert alert-success alert-dismissable'>
-              <span>El cliente tiene ${data.length} referidos, para un total de ${count}% de descuento</span>
-            </div>`
-          );
-          $("#btnsearchCode").hide();
-          $("#formPagar").show();
-          setTimeout(function () {
-            $("#totalReferides").fadeOut(1500);
-          }, 3000);
+        if (code.length > 0) {
+          if (data.length > 0) {
+            let count = data.length * 5;
+            $("#totalReferides").append(
+              `<div class='alert alert-success alert-dismissable'>
+                <span>El cliente tiene ${data.length} referidos, para un total de ${count}% de descuento</span>
+              </div>`
+            );
+            $("#btnsearchCode").hide();
+            $("#formPagar").show();
+            setTimeout(function () {
+              $("#totalReferides").fadeOut(1500);
+            }, 3000);
+          } else {
+            $("#totalReferides").append(
+              `<div class='alert alert-danger alert-dismissable'>
+                <span>Codigo sin puntos por redenir</span>
+              </div>`
+            );
+            setTimeout(function () {
+              $("#totalReferides").fadeOut(1500);
+            }, 3000);
+          }
         } else {
-          $("#totalReferides").append(
-            `<div class='alert alert-danger alert-dismissable'>
-              <span>Codigo sin puntos por redenir</span>
-            </div>`
-          );
-          setTimeout(function () {
-            $("#totalReferides").fadeOut(1500);
-          }, 3000);
+          `<div class='alert alert-danger alert-dismissable'>
+            <span>el campo es requerido</span>
+          </div>`;
         }
       },
     });

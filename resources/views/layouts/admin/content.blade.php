@@ -228,7 +228,7 @@
           {{csrf_field()}}
           <div class="form-group">
             <label for="emialReferide">Codigo Referido</label>
-            <input type="text" class="form-control" name="codeReferide" id="codeReferide" placeholder="Codigo Referido">
+            <input type="text" class="form-control" require name="codeReferide" id="codeReferide" placeholder="Codigo Referido">
           </div>
       </div>
       <div class="modal-footer">
