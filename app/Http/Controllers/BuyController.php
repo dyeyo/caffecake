@@ -88,7 +88,7 @@ class BuyController extends Controller
       ]);
       Session::flash('message', 'Venda registrada con exito');
       ClientCard::create([
-        'codReference'=>$onlyName.rand(1,1000),
+        'codReference'=>rand(1000,9999),
         'state'=>1,
         'userId'=>$request->userId,
       ]);
