@@ -7,7 +7,7 @@
 </head>
 <body>
   Hola registrate en este link con el codigo {{$onlyCode}}
-  <a href="http://127.0.0.1:8000/referidos?{{$onlyCode}}">
+  <a href="http://127.0.0.1:8000/referidos?onlyCode={{$onlyCode}}">
     Click Click
   </a>
 </body>
