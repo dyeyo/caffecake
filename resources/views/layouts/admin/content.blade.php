@@ -55,11 +55,7 @@
 </div>
 <div class="row">
     <div class="col-12">
-    @if(Session::has('message'))
-      <div class="alert alert-success">
-        {!! Session::get('message') !!}
-      </div>
-    @endif
+
       <div class="card">
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
@@ -110,7 +106,11 @@
             </div>
             <div class="tab-pane" id="tabs-2" role="tabpanel">
               <div class="card-body">
-                <!-- <div id="alerta"></div> -->
+              @if(Session::has('message'))
+                <div class="alert alert-success">
+                  {!! Session::get('message') !!}
+                </div>
+              @endif
                 <form class="user"  action="{{route('buys_storeRegular')}}" method="post">
                   {{ method_field('post') }}
                   {{csrf_field()}}
