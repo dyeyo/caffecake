@@ -73,6 +73,11 @@
             <div class="tab-pane active" id="tabs-1" role="tabpanel">
               <div class="card-body">
                 <div id="alerta"></div>
+                @if(Session::has('message'))
+                  <div class="alert alert-success">
+                    {!! Session::get('message') !!}
+                  </div>
+                @endif
                 <div id="activacion">
                   <form id="formActivacion"  action="{{route('activateTarjet')}}" method="post">
                     {{ method_field('post') }}
