@@ -15,7 +15,6 @@ class ClientContreller extends Controller
 
   public function index()
   {
-    //$clients = User::with('cartClient')->where('roleId',2)->get();
     $clients = DB::table('users')
                 ->Join('client_cards', 'users.id', '=', 'client_cards.userId')
                 ->select('users.id','users.name','users.lastname','users.numIndentificate',
@@ -23,7 +22,7 @@ class ClientContreller extends Controller
                         'client_cards.userId','client_cards.created_at')
                 ->where('users.roleId',2)
                 ->get();
-    //dd($clients);
+
     $regularclients = DB::table('users')
                 ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
                 ->select('users.id','users.name','users.lastname','users.numIndentificate',
@@ -31,7 +30,6 @@ class ClientContreller extends Controller
                 ->where('users.roleId',2)
                 ->where('client_cards.userId',null)
                 ->get();
-    //dd($regularclients[0]);
 
     return view('clients.index', compact('clients','regularclients'));
   }
@@ -54,7 +52,6 @@ class ClientContreller extends Controller
 
   public function destroy($id)
   {
-    //dd(User::find($id));
     User::find($id)->delete();
     Session::flash('message','El Cliente se elimino con exito');
     return redirect()->route('clients');
@@ -67,7 +64,6 @@ class ClientContreller extends Controller
 
   public function create_referide(Request $request)
   {
-    //dd($request->all());
     if (ClientCard::where('codReference', '=', $request->userReferide)->exists()) {
       $client = new User();
       $client->name = $request->name;

@@ -7,7 +7,6 @@ use App\ClientCard;
 use App\CuponBuy;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -29,9 +28,6 @@ class BuyController extends Controller
   public function create()
   {
     $frecuentClients = ClientCard::with('user')->where('state',1)->get();
-    //dd($frecuentClients);
-    $frecuentClients = ClientCard::select('id','codReference')->where('state',1)->get();
-    //$clients = User::select('id','numIndentificate')->where('roleId',2)->get();
     $clients = DB::table('users')
                 ->where('roleId',2)
                 ->whereNotExists(function($query)
@@ -47,13 +43,14 @@ class BuyController extends Controller
 
   public function store(Request $request)
   {
-    //dd($request->all());
     $countBuys = CuponBuy::where('regularClienteId',$request->regularClienteId)->count();
-    if ($countBuys == 1) {
-      $clietCartState = ClientCard::with('user')->find($request->userId);
+    $frecuentClients = ClientCard::with('user')->where('id',$request->regularClienteId)->get();
+    $onyId = $frecuentClients[0]->userId;
+
+    if ($countBuys == 11) {
+      $clietCartState = ClientCard::find($request->regularClienteId);
       $clietCartState->state = 2;
       $clietCartState->update();
-      //dd($clietCartState);
       ClientCard::create([
         'codReference' => random_int(1001,5000),
         'state' => 1,
@@ -77,15 +74,12 @@ class BuyController extends Controller
 
   public function storeRegular(Request $request)
   {
-    //$allBuysGeneral = BuysGeneral::all();
-    //dd($request->all());
     $codeUser = User::select('id','userReferide','name')->where('id',$request->userId)->get();
-    //dd($codeUser);
     foreach ($codeUser as $code) {
       $onlyCode = $code->userReferide;
     }
     foreach ($codeUser as $code) {
-      $onlyName = $code->name;
+      $onlyName = strtolower($code->name);
     }
 
     if (BuysGeneral::where('userId', $request->userId)->exists() || $onlyCode == null) {
@@ -104,8 +98,6 @@ class BuyController extends Controller
     BuysGeneral::create([
       'userId' => $request->userId,
     ]);
-
-
 
     Session::flash('messageReferide', 'PRIMERA COMPRA POR REFERIDO, RECLAMAR SU 2% DE DESCUENTO');
     Session::flash('message', 'Venda registrada con exito');

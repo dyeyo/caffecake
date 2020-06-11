@@ -55,7 +55,6 @@
                         </option>
                       @endforeach
                     </select>
-                    <input type="hidden" name="userId" id="userIdTarjet">
 
                   </div>
                   <div class="form-group">
