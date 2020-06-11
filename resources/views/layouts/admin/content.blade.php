@@ -54,6 +54,11 @@
   </div>
 </div>
 <div class="row">
+    @if(Session::has('message'))
+      <div class="alert alert-success">
+        {!! Session::get('message') !!}
+      </div>
+    @endif
     <div class="col-12">
       <div class="card">
         <div class="card-body">
