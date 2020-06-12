@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/clientes', 'ClientContreller@index')->name('clients');
     Route::delete('/cliente/{user}', 'ClientContreller@destroy')->name('deleteUser');
+    Route::get('/cliente/edit/{id}', 'ClientContreller@getClient')->name('getClient');
+    Route::put('/cliente/{id}', 'ClientContreller@updateClient')->name('updateClient');
 
     //TARJETA Fiel
     Route::post('/cliente/activar_tarjeta/', 'ClientContreller@activateTarjet')->name('activateTarjet');

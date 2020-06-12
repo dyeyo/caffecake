@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-      <h4 class="text-themecolor">Bienvenido a WaffCake</h4>
+      <h4 class="text-themecolor">Bienveido a WaffCake</h4>
     </div>
     <div class="col-md-7 align-self-center text-right">
       <div class="d-flex justify-content-end align-items-center">
@@ -24,7 +24,7 @@
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Buscar cliente fiel</a>
+              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Buscar cliente frecuente</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Buscar cliente nuevos</a>
@@ -37,27 +37,15 @@
             <div class="tab-pane active" id="tabs-1" role="tabpanel">
               <div class="card-body">
                 <div id="alerta"></div>
-                @if(Session::has('message'))
-                  <div class="alert alert-success">
-                    {!! Session::get('message') !!}
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  </div>
-                @endif
-                <div id="activacion">
-                  <form id="formActivacion"  action="{{route('activateTarjet')}}" method="post">
-                    {{ method_field('post') }}
-                    {{csrf_field()}}
-                    <input type="hidden" name="codReference" value={{rand(1001,5000) }}">
-                    <input type="hidden" name="state" value="1">
-                    <input type="hidden" name="userId" value="">
-                  </form>
+                <div id='activacion' style="display: none;" class='alert alert-warning'>
+                  La tarjeta del cliente cambiara de codigo.
                 </div>
                 <form class="user" action="{{route('buys_store')}}" method="post">
                   {{ method_field('post') }}
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de tarjeta cliente fiel:
+                      Codigo de cliente frecuente:
                     </label>
                     <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
@@ -67,6 +55,8 @@
                         </option>
                       @endforeach
                     </select>
+                    <input type="hidden" name="userId" id="userIdTarjet">
+
                   </div>
                   <div class="form-group">
                     <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>
@@ -76,12 +66,7 @@
             </div>
             <div class="tab-pane" id="tabs-2" role="tabpanel">
               <div class="card-body">
-              @if(Session::has('message'))
-                <div class="alert alert-success">
-                  {!! Session::get('message') !!}
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                </div>
-              @endif
+                <!-- <div id="alerta"></div> -->
                 <form class="user"  action="{{route('buys_storeRegular')}}" method="post">
                   {{ method_field('post') }}
                   {{csrf_field()}}
@@ -89,10 +74,10 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de cliente por Indentificación
                     </label>
-                    @isset($listClients)
+                    @isset($clients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
-                      @foreach($listClients as $client)
+                      @foreach($clients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->numIndentificate }}
                         </option>
@@ -118,12 +103,8 @@
                       @error('name')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
                         </span>
                       @enderror
-
                     </div>
                   </div>
                   <div class="form-group row">
@@ -140,7 +121,7 @@
                   <div class="form-group row">
                     <label for="name" class="col-md-12 col-form-label ">Num Indentificación</label>
                     <div class="col-md-12">
-                      <input required id="numIndentificate" type="number" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
+                      <input required id="numIndentificate" type="text" class="form-control @error('numIndentificate') is-invalid @enderror" name="numIndentificate" value="{{ old('numIndentificate') }}" required autocomplete="numIndentificate" >
                       @error('numIndentificate')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -171,7 +152,7 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                    <button type="submit"  class="btn btn-primary btn-block">Registrar Cliente</button>
+                    <button type="submit"  class="btn btn-primary">Registrar Cliente</button>
                   </div>
                 </form>
               </div>
@@ -181,6 +162,5 @@
       </div>
     </div>
   </div>
-
 </div>
 @endsection

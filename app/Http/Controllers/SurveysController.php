@@ -30,7 +30,6 @@ class SurveysController extends Controller
   {
     $state = Surveys::find($id);
     $state->state = $request->state;
-    //dd($state);
     $state->update();
     Session::flash('encuestaOk','Encuesta desactivada');
     return redirect()->route('allSurveys');
@@ -38,7 +37,6 @@ class SurveysController extends Controller
 
   public function responseSurveys(Request $request)
   {
-    //dd($request->all());
     ResponseSurveys::create($request->all());
     Session::flash('encuestaOk','Encuesta enviada con exito, gracias por responder');
     return redirect()->route('home');

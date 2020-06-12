@@ -84,6 +84,37 @@ class ClientContreller extends Controller
 
   }
 
+  public function getClient($id)
+  {
+    $user = User::find($id);
+    return view('editUser',compact('user'));
+  }
+
+  public function updateUser(Request $request, $id)
+  {
+    dd($request->all());
+    $user = User::find($id);
+    if($request->password == ''){
+      $user->name = $request->name;
+      $user->lastname = $request->lastname;
+      $user->numIndentificate = $request->numIndentificate;
+      $user->email = $request->email;
+      $user->userReferide = $request->userReferide;
+      $user->mobile = $request->mobile;
+    } else {
+      $user->name = $request->name;
+      $user->lastname = $request->lastname;
+      $user->numIndentificate = $request->numIndentificate;
+      $user->email = $request->email;
+      $user->userReferide = $request->userReferide;
+      $user->password = Hash::make($request->password);
+      $user->mobile = $request->mobile;
+    }
+    $user->update();
+    Session::flash('message', 'Cliente actualizado con exito');
+    return redirect()->route('clients');
+  }
+
   public function referideDiscount(Request $request, User $user, ClientCard $clientCard)
   {
     $users = $user->where('userReferide', $request->codeReferide)->get(['id','userReferide']);

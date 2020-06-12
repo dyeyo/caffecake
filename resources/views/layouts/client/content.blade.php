@@ -52,6 +52,11 @@ una compra.</span>
           <div class="d-flex no-block align-items-center">
             <div>
               <h3><i class="fas fa-bullhorn"></i></h3>
+              @if(Session::has('message'))
+                <div class="alert alert-success">
+                  {!! Session::get('message') !!}
+                </div>
+              @endif
               <p class=""><b>Pasa la voz waffcake- Referidos</b></p>
               <span>Gana hasta el 5% de descuento solo con recomendarnos, cada vez que
                   refieras a un amigo y este haga efectiva una compra</span>
@@ -80,13 +85,6 @@ una compra.</span>
   <div class="col-md-7">
     <div class="card">
         <div class="card-body">
-        @if(Session::has('message'))
-          <div class="alert alert-success">
-            {!! Session::get('message') !!}
-          </div>
-        @endif
-
-
             <hr>
             <h5 class="card-title">Historial de compras tarjeta cliente fiel</h5>
             <p>Conoce el historial de tus compras</p>

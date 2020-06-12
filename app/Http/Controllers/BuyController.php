@@ -37,7 +37,6 @@ class BuyController extends Controller
                           ->whereRaw('client_cards.userId = users.id');
                   })
                 ->get();
-    //dd($clients);
     return view('buys.create',compact('clients','frecuentClients'));
   }
 

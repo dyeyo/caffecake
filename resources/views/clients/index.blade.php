@@ -32,6 +32,7 @@
                     <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -42,6 +43,7 @@
                     <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </tfoot>
@@ -53,6 +55,9 @@
                       <td>{{$client->codReference }}</td>
                       <td>{{$client->mobile }}</td>
                       <td>{{$client->email }}</td>
+                      <td>
+                        <a href="{{route('getClient',$client->userId)}}">Editar</a>
+                      </td>
                       <td>
                         <form class="user"  action="{{route('deleteUser', $client->userId)}}" method="post">
                           {{ method_field('delete') }}
@@ -84,6 +89,8 @@
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
                     <th>Celular</th>
+                    <th>Correo Electronico</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -92,6 +99,8 @@
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
                     <th>Celular</th>
+                    <th>Correo Electronico</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </tfoot>
@@ -101,6 +110,10 @@
                       <td class="sorting_1">{{$client->name }}  {{$client->lastname }}</td>
                       <td>{{$client->numIndentificate }}</td>
                       <td>{{$client->mobile }}</td>
+                      <td>{{$client->email }}</td>
+                      <td>
+                        <a href="{{route('getClient',$client->id)}}">Editar</a>
+                      </td>
                       <td>
                         <form class="user"  action="{{route('deleteUser', $client->id)}}" method="post">
                           {{ method_field('delete') }}
