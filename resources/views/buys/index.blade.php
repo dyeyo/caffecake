@@ -28,11 +28,13 @@
           @if(Session::has('messageReferide'))
           <div class="alert alert-warning">
             {!! Session::get('messageReferide') !!}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           </div>
           @endif
           @if(Session::has('message'))
           <div class="alert alert-success">
             {!! Session::get('message') !!}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           </div>
           @endif
           <table  class="example table table-striped table-bordered" style="width:100%">
