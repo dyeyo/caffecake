@@ -61,7 +61,7 @@
                           </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right">
                             Del 1 al 5 en cúanto calificarias la presentación del producto
                           </label>
@@ -105,7 +105,7 @@
                               <input type="radio" value="MUY BUENO" require name="question4">    5
                             </label>
                           </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                           <label for="name" class="col-md-4 col-form-label text-md-right">

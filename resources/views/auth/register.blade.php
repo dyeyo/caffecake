@@ -85,20 +85,24 @@
                         <div class="form-group row">
                           <label for="password" class="col-md-4 col-form-label text-md-right">Telefono</label>
                           <div class="col-md-6">
-                              <input id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
-                              @error('mobile')
+                              <input id="mobile" type="number"
+                                maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                class="form-control @error('mobile') is-invalid @enderror"
+                                name="mobile" required autocomplete="mobile">
+                                @error('mobile')
                                   <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
+                                    <strong>{{ $message }}</strong>
                                   </span>
-                              @enderror
+                                @enderror
                           </div>
                       </div>
                       <div class="col-lg-12" style="margin-left: 150px;">
                           <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="terminos" class="custom-control-input" id="customCheck1">
+                            <input type="checkbox" name="terminos" require class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">
+                            he leido y acepto los términos y condiciones
                               <a href="{{route('terminos_condicones')}}" target="_blank">
-                                Aceptar Términos y condiciones
+                                Términos y condiciones
                               </a>
                             </label>
                           </div>

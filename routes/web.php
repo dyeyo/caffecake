@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/load_buys/{id}', 'BuyController@loadBuys')->name('loadBuys');
     Route::post('/crear_cliente', 'BuyController@createClient')->name('createClient');
     Route::put('/renovacion_codigo/{user}', 'BuyController@codeRenovation')->name('codeRenovation');
+    Route::delete('/ventas/eliminar/{id}', 'BuyController@destroy')->name('buy_delete');
 
     //ENCUESTAS
     Route::get('/encuestas', 'SurveysController@index')->name('allSurveys');
@@ -52,6 +53,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/encuestas/eliminar/{id}', 'SurveysController@destroy')->name('deleteSurvy');
     Route::put('/encuestas/estado/{id}', 'SurveysController@stateSurvey')->name('stateSurvey');
     Route::get('/encuestas/grafica', 'SurveysController@chartSurvey')->name('chartSurvey');
+    Route::get('/encuestas/editar/{id}', 'SurveysController@surveyEdit')->name('surveyEdit');
+    Route::put('/encuestas/{id}', 'SurveysController@surveyUpdate')->name('surveyUpdate');
 
   });
 

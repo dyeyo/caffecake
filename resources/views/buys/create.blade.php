@@ -141,9 +141,9 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                      <label for="password" class="col-md-12 col-form-label ">Num de Contacto</label>
+                      <label for="password" class="col-md-12 col-form-label ">Teléfono</label>
                       <div class="col-md-12">
-                          <input required id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
+                          <input required maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                           @error('mobile')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

@@ -65,6 +65,19 @@ class SurveysController extends Controller
     return  redirect()->away('https://www.waffcake.com');
   }
 
+  public function surveyEdit($id)
+  {
+    $surveys = Surveys::find($id);
+    return view('surveys.admin.edit',compact('surveys'));
+  }
+
+  public function surveyUpdate(Request $request, $id)
+  {
+    $survey = Surveys::find($id);
+    $survey->update($request->all());
+    Session::flash('message', 'Encuesta actualizada con exito');
+    return redirect()->route('allSurveys');
+  }
   public function chartSurvey()
   {
     $response1 = SurveyPublic::where('question1','MUY MALO')->count();
@@ -95,6 +108,6 @@ class SurveysController extends Controller
     'questionQuestion2_1','questionQuestion2_2','questionQuestion2_3','questionQuestion2_4','questionQuestion2_5',
     'questionQuestion3_1','questionQuestion3_2','questionQuestion3_3','questionQuestion3_4','questionQuestion3_5',
     'questionQuestion4_1','questionQuestion4_2','questionQuestion4_3','questionQuestion4_4','questionQuestion4_5'
-  ));
+    ));
   }
 }

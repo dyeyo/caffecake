@@ -52,6 +52,9 @@
                 <th>
                   Codigo de Referencia
                 </th>
+                <th>
+                  Eliminar
+                </th>
               </tr>
             </thead>
             <tfoot>
@@ -68,6 +71,9 @@
                 <th>
                   Codigo de Referencia
                 </th>
+                <th>
+                  Eliminar
+                </th>
 
               </tr>
             </tfoot>
@@ -78,6 +84,13 @@
                 <td>{{$buy->clientCard->user->numIndentificate}}</td>
                 <td>{{$buy->clientCard->user->mobile}}</td>
                 <td>{{$buy->clientCard->codReference}}</td>
+                <td>
+                  <form class="user"  action="{{route('buy_delete', $buy->id)}}" method="post">
+                    {{ method_field('delete') }}
+                    {{csrf_field()}}
+                    <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
+                  </form>
+                </td>
               </tr>
               @endforeach
             </tbody>

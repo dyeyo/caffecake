@@ -79,6 +79,7 @@
                     <th>Estado</th>
                     <th>Ver Resultados</th>
                     <th>Activar/Desactivar</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -89,6 +90,7 @@
                     <th>Estado</th>
                     <th>Ver Resultados</th>
                     <th>Activar/Desactivar</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </tfoot>
@@ -98,6 +100,7 @@
                       <td class="sorting_1">{{ $survey->title }}</td>
                       <td>{{ $survey->type == 1 ? 'SI/NO' : 'Calificación por número'}}</td>
                       <td>{{ $survey->state == 1 ? 'ACTIVA' : 'DESACTIVADA'}}</td>
+                      <td><a class="btn btn-warning" href="{{route('surveyEdit', $survey->id)}}">Editar</a></td>
                       <td>
                         <form class="user"  action="{{route('surveysResults', $survey->id)}}" method="post">
                           {{csrf_field()}}

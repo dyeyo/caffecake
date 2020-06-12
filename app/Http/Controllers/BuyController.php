@@ -129,4 +129,10 @@ class BuyController extends Controller
     return redirect()->route('buys');
   }
 
+  public function destroy($id)
+  {
+    CuponBuy::find($id)->delete();
+    Session::flash('message','La venta se elimino con exito');
+    return redirect()->route('buys');
+  }
 }

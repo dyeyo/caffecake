@@ -8,9 +8,10 @@
               <h3><i class="fas fa-crown"></i></h3>
               <p class=""><b>Tú codigo:</b></p>
               <span>Tu código del programa, ¡tu identificación! y debe ser
-presentado siempre que desees hacer un descuento efectivo. Ya seas por
-compras acumuladas en tarjeta cliente fiel o porque un amigo que referiste hizo
-una compra.</span>
+                presentado siempre que desees hacer un descuento efectivo. Ya seas por
+                compras acumuladas en tarjeta cliente fiel o porque un amigo que referiste hizo
+                una compra.
+              </span>
             </div>
 
             <div class="ml-auto">
@@ -113,11 +114,11 @@ una compra.</span>
   <div class="col-md-5">
     <div class="card">
         <div class="card-body">
-          <!-- <div id="response">
-          </div> -->
           @if(Session::has('encuestaOk'))
             <div class="alert alert-success">
               {!! Session::get('encuestaOk') !!}
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
             </div>
           @endif
           <hr>
@@ -139,7 +140,6 @@ una compra.</span>
                         <td>{{ $surveys->title }}</td>
                         <td>
                           <form action="{{route('responseSurveys')}}" method="post"  id="responseSurveys" preventDefault();>
-                          <!-- <form action="javacript:void(0)" id="responseSurveys" method="POST" name="responseSurveys"> -->
                             @csrf
                               @if($surveys->type == 1)
                                 <label for="SI">SI</label>
@@ -151,7 +151,7 @@ una compra.</span>
                               @endif
                               <input  name="userId" type="hidden" value="{{Auth()->user()->id}}">
                               <input  name="surveysId" type="hidden" value="{{$surveys->id}}">
-                            <button  class="btn btn-secundary" onclick="createResponseSurvey()">
+                            <button  class="btn btn-secundary" type="submit">
                               Enviar
                             </button>
                           </form>
