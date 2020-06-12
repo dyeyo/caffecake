@@ -56,7 +56,7 @@
                       <td>{{$client->mobile }}</td>
                       <td>{{$client->email }}</td>
                       <td>
-                        <a href="{{route('getClient',$client->userId)}}">Editar</a>
+                        <a class="btn btn-primary" href="{{route('getClient',$client->userId)}}">Editar</a>
                       </td>
                       <td>
                         <form class="user"  action="{{route('deleteUser', $client->userId)}}" method="post">

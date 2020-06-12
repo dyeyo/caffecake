@@ -143,7 +143,7 @@
                     @endisset
                   </div>
                   <div class="form-group">
-                    <button type="submit"  class="btn btn-primary">Realizar Venta</button>
+                    <button type="submit"  class="btn btn-primary">Activar Cliente Fiel</button>
                   </div>
                 </form>
               </div>
