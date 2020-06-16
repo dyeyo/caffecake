@@ -101,7 +101,7 @@
                   @foreach($purachasesEspecial as $purachase)
                     <tr>
                       <td>{{ $purachase->codReference }}</td>
-                      <td>{{ $purachase->created_at }}</td>
+                      <td>{{ Carbon\Carbon::parse($purachase->created_at)->format('d-m-Y') }}</td>
                     </tr>
                   @endforeach
                 @endisset

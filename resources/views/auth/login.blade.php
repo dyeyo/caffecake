@@ -7,7 +7,15 @@
         {!! Session::get('encuesta') !!}
       </div>
     @endif
-		<img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake">
+    <div>
+      <img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake">
+    </div>
+    @error('email')
+    <br>
+      <div class="alert alert-danger">
+        <strong>Correo o clave invalidas, intentelo nuevamente</strong>
+      </div>
+    @enderror
       <form
         method="POST"
         class="form-horizontal form-material"
@@ -29,11 +37,7 @@
               autofocus
             />
           </div>
-          @error('email')
-          <span class="invalid-feedback" role="alert">
-            <strong>Error, correo incorrecto</strong>
-          </span>
-          @enderror
+
         </div>
         <div class="form-group">
           <div class="col-xs-12">
@@ -48,8 +52,8 @@
             />
           </div>
           @error('password')
-          <span class="invalid-feedback" role="alert">
-            <strong>Error, contraseña incorrecta</strong>
+          <span class="alert text-danger" role="alert">
+            <strong>Error en la contraseña, intentelo nuevamente</strong>
           </span>
           @enderror
         </div>
