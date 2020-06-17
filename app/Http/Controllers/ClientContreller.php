@@ -92,7 +92,7 @@ class ClientContreller extends Controller
 
   public function updateUser(Request $request, $id)
   {
-    dd($request->all());
+    //dd($request->all());
     $user = User::find($id);
     if($request->password == ''){
       $user->name = $request->name;
