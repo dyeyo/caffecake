@@ -59,9 +59,10 @@
                 </div>
               @endif
               <p class=""><b>Pasa la voz waffcake- Referidos</b></p>
-              <span>Gana hasta el 5% de descuento solo con recomendarnos, cada vez que
-                  refieras a un amigo y este haga efectiva una compra</span>
+              <span>Comparte la delicia del wafle con un amigo. Recuerda que podrás hacer efectivo tu descuento
+                del 5% cuando tu amigo se registre y haga su primera compra. <b>¡Eres nuestra razón de ser!</b></span>
                   @isset($codeClient)
+                  <br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                       Agregar Referido
                     </button>
@@ -190,8 +191,8 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Enviar email</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Compartir con un amigo</button>
         </form>
 
       </div>

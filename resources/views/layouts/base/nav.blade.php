@@ -5,7 +5,7 @@
         @if(Auth()->user()->roleId == 1)
           <li>
             <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false">
-            <i class="fas fa-home"></i><span class="hide-menu">Dashboard</span>
+            <i class="fas fa-home"></i><span class="hide-menu">Inicio</span>
             </a>
           </li>
           <li class="nav-small-cap">--- TIENDA</li>

@@ -3,7 +3,14 @@
   <div class="container-fluid">
     <div class="row page-titles">
       <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Bienvenido {{ Auth()->user()->name }} a WaffCake</h4>
+        @if(Auth()->user()->roleId == 1)
+          <h4 class="text-themecolor">Bienveido
+          {{ Auth()->user()->name }} al perfil administrador del programa de beneficios Waffcake, la wafflería del
+          Sabora </h4>
+        @else
+          <h4 class="text-themecolor">Bienvenido {{ Auth()->user()->name }} a Waffcake, la wafflería del
+          Sabora </h4>
+        @endif
       </div>
       <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">

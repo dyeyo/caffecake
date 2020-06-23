@@ -120,7 +120,7 @@ class HomeController extends Controller
   public function sendEmail(Request $request)
   {
     Mail::to($request->emialReferide)->send(new ReferenceClients());
-    Session::flash('message', 'Correo electronico enviado con exito');
+    Session::flash('message', 'Correo electronico enviado con éxito');
     return redirect()->route('home');
   }
 
