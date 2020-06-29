@@ -6,7 +6,7 @@
           <div class="d-flex no-block align-items-center">
             <div>
               <h3><i class="fas fa-users"></i></h3>
-              <p class="text-muted">TOTAL CLIENTES</p>
+              <p class="text-muted">Total clientes Inscritos en el programa</p>
             </div>
             <div class="ml-auto">
               <h2 class="counter text-primary">{{ $clients }}</h2>
@@ -59,13 +59,19 @@
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Buscar cliente fiel</a>
+              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+              <i class="fas fa-star"></i>
+                Buscar cliente fiel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Buscar cliente nuevos</a>
+              <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                <i class="fas fa-users"></i>
+                Buscar cliente nuevos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Agregar cliente</a>
+              <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+              <i class="fas fa-user"></i>
+              Registrar cliente nuevo</a>
             </li>
           </ul>
           <div class="tab-content">
@@ -101,8 +107,8 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de tarjeta cliente fiel:
                     </label>
-                    <select required class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
-                      <option value="">--SELECCIONE UNA OPCIÓN</option>
+                    <select required class="codReferenceCliente"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
+                      <option value="">--Buscar código</option>
                       @foreach($frecuentClients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->codReference }}
@@ -110,8 +116,13 @@
                       @endforeach
                     </select>
                   </div>
+                  <span>En este panel activarás un cliente para generarle su código, después de activarlo
+                    deberás registrar la venta y si un cliente nuevo está en el establecimiento podrás
+                    ingresarlo en “registrar cliente nuevo” posterior a registrarlo , registra su venta y listo.</span>
+                    <hr>
+
                   <div class="form-group">
-                    <button type="submit" id="ventaDoce" class="btn btn-primary">Realizar Venta</button>
+                    <button type="submit" id="ventaDoce" class="btn btn-primary">Registrar Venta</button>
                   </div>
                 </form>
               </div>
@@ -133,7 +144,7 @@
                     </label>
                     @isset($listClients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
-                      <option value="">--SELECCIONE UNA OPCIÓN</option>
+                      <option value="">--Buscar número de cédula</option>
                       @foreach($listClients as $client)
                         <option value="{{ $client->id }}">
                           {{ $client->numIndentificate }}
@@ -142,8 +153,12 @@
                     </select>
                     @endisset
                   </div>
+                  <span>En este panel activarás un cliente para generarle su código, después de activarlo
+                    deberás registrar la venta y si un cliente nuevo está en el establecimiento podrás
+                    ingresarlo en “registrar cliente nuevo” posterior a registrarlo , registra su venta y listo.</span>
+                    <hr>
                   <div class="form-group">
-                    <button type="submit"  class="btn btn-primary">Activar Cliente Fiel</button>
+                    <button type="submit"  class="btn btn-primary">Activar cliente</button>
                   </div>
                 </form>
               </div>

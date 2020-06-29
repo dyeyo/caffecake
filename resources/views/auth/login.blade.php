@@ -7,6 +7,7 @@
         {!! Session::get('encuesta') !!}
       </div>
     @endif
+    <br>
     <div>
       <img src="https://www.waffcake.com/img/logo_wk_02.png" alt="WaffCake">
     </div>
@@ -26,7 +27,7 @@
         <div class="form-group m-t-40">
           <div class="col-xs-12">
             <input
-              placeholder="Correo Electronico"
+              placeholder="Correo Electrónico"
               id="email"
               type="email"
               class="form-control @error('email') is-invalid @enderror"

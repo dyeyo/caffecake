@@ -30,7 +30,11 @@ $(document).ready(function () {
   });
   $(".codReference").select2({
     allowClear: true,
-    placeholder: "Seleccione una opcion..",
+    placeholder: "Buscar número de cédula...",
+  });
+  $(".codReferenceCliente").select2({
+    allowClear: true,
+    placeholder: "  Buscar código...",
   });
   $("#mensajeCodigo").hover(
     function () {

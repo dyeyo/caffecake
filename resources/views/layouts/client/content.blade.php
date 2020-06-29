@@ -5,12 +5,9 @@
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
             <div id="codigo">
-              <h3><i class="fas fa-crown"></i></h3>
+              <h3><i class="fas fa-barcode"></i></h3>
               <p class=""><b>Tú codigo:</b></p>
-              <span>Tu código del programa, ¡tu identificación! y debe ser
-                presentado siempre que desees hacer un descuento efectivo. Ya seas por
-                compras acumuladas en tarjeta cliente fiel o porque un amigo que referiste hizo
-                una compra.
+              <span>Es tu identificación en el programa úsalo para hacer efectivo el descuento.
               </span>
             </div>
 
@@ -32,9 +29,11 @@
         <div class="col-md-12">
           <div class="d-flex no-block align-items-center">
             <div>
-              <h3><i class="fas fa-shopping-bag"></i></h3>
+              <h3><i class="fas fa-id-card"></i></h3>
               <p class=""><b>Tarjeta cliente fiel</b></p>
-              <span>Recibe el 5% , 10% y hasta el 50% de descuento al acumular tus compras.</span>
+              <span>Acumula descuentos por tus compras. Obtienes el 5% a la
+                quinta compra, el 10% a la décima compra y el 50% a la doceava compra. Puedes
+                acumular tus descuentos. Actívala con la primera compra.</span>
             </div>
             <div class="ml-auto">
               @isset($conteoPurachasesEspecial)

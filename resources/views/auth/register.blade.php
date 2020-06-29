@@ -9,8 +9,8 @@
             <div class="card">
                 <div class="card-header"><h3>REGISTRO: PROGRAMA DE BENEFICIOS WAFFCAKE</h3>
 					        <p>
-                  ¡Bienvenido! Regístrate en 1 solo paso en nuestro programa de
-                  beneficios y disfruta de la delicia del waffle con descuentos especiales!
+                    ¡Bienvenido al programa de beneficios de Waffcake ! ¡Regístrate en 1 solo paso y
+                    disfruta de la delicia del waffle con descuentos especiales!
                   </p>
 				        </div>
                 <div class="card-body">
@@ -76,14 +76,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confrimar Contraseña</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmar Contraseña</label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                           </div>
 
                         <div class="form-group row">
-                          <label for="password" class="col-md-4 col-form-label text-md-right">Telefono</label>
+                          <label for="password" class="col-md-4 col-form-label text-md-right">Teléfono</label>
                           <div class="col-md-6">
                               <input id="mobile" type="number"
                                 maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -100,7 +100,7 @@
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="terminos" require class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">
-                            he leido y acepto los términos y condiciones
+                              He leído y acepto términos y condiciones – Ver aquí
                               <a href="{{route('terminos_condicones')}}" target="_blank">
                                 Términos y condiciones
                               </a>

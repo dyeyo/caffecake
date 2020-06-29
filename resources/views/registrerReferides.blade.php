@@ -6,6 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Registro</div>
+                <p>Tarjeta cliente fiel, recibirás 5% , 10% y hasta el 50% de descuento al acumular
+                  compras.
+                  Y Además después de inscribirte, podrás ganar hasta el 5% de descuento solo con
+                  recomendarnos en “pasa la voz waffcake” cada vez que refieras a un amigo y el haga
+                  efectiva una compra, tu recibirás el 5% y tu referido el 2%
+                  Comienza ahora y …¡A disfrutar del sabor wafflero!</p>
                 <div class="card-body">
                   @if(Session::has('message'))
                     <div class="alert alert-danger">
