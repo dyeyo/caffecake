@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BuysGeneral;
 use App\ClientCard;
 use App\CuponBuy;
+use App\Http\Requests\RegisterRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -103,7 +104,7 @@ class BuyController extends Controller
     return redirect()->route('buys');
   }
 
-  public function createClient(Request $request)
+  public function createClient(RegisterRequest $request)
   {
     $client = new User();
     $client->name = $request->name;

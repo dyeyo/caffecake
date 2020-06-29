@@ -13,6 +13,16 @@
                   efectiva una compra, tu recibirás el 5% y tu referido el 2%
                   Comienza ahora y …¡A disfrutar del sabor wafflero!</p>
                 <div class="card-body">
+                  @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        @foreach($errors->all() as $error)
+                            {{ $error }}<br/>
+                        @endforeach
+                    </div>
+                  @endif
                   @if(Session::has('message'))
                     <div class="alert alert-danger">
                       {!! Session::get('message') !!}
