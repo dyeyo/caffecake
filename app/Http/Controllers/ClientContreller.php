@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ClientCard;
 use App\CuponBuy;
+use App\Http\Requests\ReferidesRequest;
 use App\Http\Requests\RegisterRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -64,7 +65,7 @@ class ClientContreller extends Controller
     return view('registrerReferides');
   }
 
-  public function create_referide(RegisterRequest $request)
+  public function create_referide(ReferidesRequest $request)
   {
     if (ClientCard::where('codReference', '=', $request->userReferide)->exists()) {
       $client = new User();

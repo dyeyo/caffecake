@@ -13,16 +13,6 @@
                   efectiva una compra, tu recibirás el 5% y tu referido el 2%
                   Comienza ahora y …¡A disfrutar del sabor wafflero!</p>
                 <div class="card-body">
-                  @if($errors->any())
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                        @foreach($errors->all() as $error)
-                            {{ $error }}<br/>
-                        @endforeach
-                    </div>
-                  @endif
                   @if(Session::has('message'))
                     <div class="alert alert-danger">
                       {!! Session::get('message') !!}
@@ -93,15 +83,9 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confrimar Contraseña</label>
-                      <div class="col-md-6">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                      </div>
-                    </div>
-                    <div class="form-group row">
                       <label for="password" class="col-md-4 col-form-label text-md-right">Num de Contacto</label>
                       <div class="col-md-6">
-                        <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
+                        <input id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" required autocomplete="mobile">
                         @error('mobile')
                           <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
