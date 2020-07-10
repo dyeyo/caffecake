@@ -32,8 +32,8 @@
             </a>
           </li>
           <li>
-              <img src="{{ asset('img/bg.jpg') }}" width="100%" height="100%" style="height: 39pc;
-              margin-top: 4px;" alt="">
+              <img src="{{ asset('img/bg.jpg') }}" width="100%" height="100%" style="height: 30pc;
+              margin-top: 80%;" alt="">
           </li>
         @endif
       </ul>
