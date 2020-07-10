@@ -1,5 +1,12 @@
+<div class="alert alert-succees" style="color: #fff;;background: #25a7bd">
+  Este es tu perfil del Programa de Beneficios WaffcaCke, aquí podrás tener toda la
+  información de tus compras y los descuentos obtenidos.
+  {{-- <img src="{{ asset('img/register.jpg') }}" width="20%" alt=""> --}}
+  <h1>IMAGEN CENTRADA, VER ULTIMA HOJA DEL DOCUMENTO</h1>
+</div>
  <div class="card-group">
-  <div class="card">
+
+  <div class="card mr-3">
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
@@ -23,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card mr-3">
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
@@ -45,7 +52,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card ">
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
@@ -60,6 +67,7 @@
               <p class=""><b>Pasa la voz waffcake- Referidos</b></p>
               <span>Comparte la delicia del wafle con un amigo. Recuerda que podrás hacer efectivo tu descuento
                 del 5% cuando tu amigo se registre y haga su primera compra. <b>¡Eres nuestra razón de ser!</b></span>
+                <b><a href="">Conoce más aquí</a></b>
                   @isset($codeClient)
                   <br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -87,7 +95,7 @@
     <div class="card">
         <div class="card-body">
             <hr>
-            <h5 class="card-title">Historial de compras tarjeta cliente fiel</h5>
+            <h5 class="card-title"><i class="fas fa-cart-arrow-down"></i> Historial de compras tarjeta cliente fiel</h5>
             <p>Conoce el historial de tus compras</p>
             <table  class="table table-striped table-bordered" style="width:100%">
                 <thead>
@@ -123,8 +131,9 @@
           @endif
           <hr>
           <h5 class="card-title">Tu opinión cuenta</h5>
-          <p>Eres nuestra razón de ser, regálanos tus opiniones para continuar
-            mejorando para ti.</p>
+          <p>De 1 a 5, como calificas el programa de beneficios waffcake, siendo 1 muy malo y 5 muy
+            BUENO
+           <b> ¿Qué le adicionarías?</b></p>
             <table  class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -163,6 +172,30 @@
                 </tbody>
             </table>
         </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <ul style="list-style: none;">
+          <li><b><i class="fa fa-exclamation"></i> 1</b>. En cualquiera de los dos beneficios podrás acumular tus descuentos, pero no
+            sumaran los descuentos de los dos beneficios al mismo tiempo</li>
+          <li><b><i class="fa fa-exclamation"></i> 2. WAFFCAKE</b> solo se podrán hacer efectivo si los pedidos se realizan a través
+            de la línea directa de <b>WAFFCAKE 3128907331.</b> A los pedidos que se realicen</li>
+          <li><b><i class="fa fa-exclamation"></i> 3</b>. Los descuentos <b>TARJETA CLIENTE FIEL y PASA LA VOZ WAFFCAKE</b> no
+            podrán efectuarse al mismo tiempo y bajo una sola compra, esto quiere decir <b>no son acumulables los descuentos de estos dos beneficios. Deben
+              solicitarse por separado.</b></li>
+          <li><b><i class="fa fa-exclamation"></i> 4</b>. Los descuentos efectuados para la <b> TARJETA CLIENTE FIEL y PASA LA VOZ
+            WAFFCAKE, aplican solo para la compra de un producto por cliente no
+            por compras totales.</b></li>
+        </ul>
+        <ul style="list-style: none;">
+          <li>Conoce más del programa aquí (Términos y condiciones)</li>
+          <li>  Preguntas frecuentes</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

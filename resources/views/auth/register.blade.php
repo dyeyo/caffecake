@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-	<a href="https://clientes.waffcake.com"><img src="https://www.waffcake.com/img/logo_wk_02.png" alt="wafecake"></a>
+  <br>
+	<a href="https://clientes.waffcake.com" style="margin-bottom:5px"><img src="https://www.waffcake.com/img/logo_wk_02.png" alt="wafecake"></a>
     <div class="row justify-content-center">
-
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><h3>REGISTRO: PROGRAMA DE BENEFICIOS WAFFCAKE</h3>
@@ -101,9 +101,9 @@
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="terminos" require class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">
-                              He leído y acepto términos y condiciones – Ver aquí
+                              He leído y acepto términos y condiciones –
                               <a href="{{route('terminos_condicones')}}" target="_blank">
-                                Términos y condiciones
+                                Ver aquí
                               </a>
                             </label>
                           </div>

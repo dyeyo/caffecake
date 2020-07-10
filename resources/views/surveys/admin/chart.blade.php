@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
   <div class="row page-titles">
-    <div class="col-md-5 align-self-center">
+    <div class="col-md-12 align-self-center">
       <h4 class="text-themecolor">Bienvenido a WaffCake</h4>
     </div>
     <div class="col-md-7 align-self-center text-right">

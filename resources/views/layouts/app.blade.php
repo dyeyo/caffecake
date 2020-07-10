@@ -24,11 +24,11 @@
 <link href="{{ asset('css/waffCake.css')}}" rel="stylesheet"/>
 </head>
 
-<body>
-<div id="app"> @yield('content') </div>
-<script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script> 
-<script src="{{ asset ('js/popper/popper.min.js')}}"></script> 
-<script src="{{ asset ('js/bootstrap/dist/js/bootstrap.min.js')}}"></script> 
+<body style="background-image: url({{ asset('img/register.png') }})">
+<div id="app" > @yield('content') </div>
+<script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script>
+<script src="{{ asset ('js/popper/popper.min.js')}}"></script>
+<script src="{{ asset ('js/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript">
         $(function() {
             $(".preloader").fadeOut();

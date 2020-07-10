@@ -17,6 +17,7 @@
         <strong>Correo o clave invalidas, intentelo nuevamente</strong>
       </div>
     @enderror
+      <h3>Bienvenido al programa de Beneficios Waffcake</h3>
       <form
         method="POST"
         class="form-horizontal form-material"

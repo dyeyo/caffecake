@@ -28,7 +28,7 @@
         @else
           <li>
             <a class="waves-effect waves-dark" href="/home" aria-expanded="false">
-            <i class="fas fa-cart-arrow-down"></i><span class="hide-menu">Mis compras</span>
+            <span class="hide-menu">Mis compras</span>
             </a>
           </li>
         @endif
