@@ -30,10 +30,19 @@
 
 <body class="skin-default fixed-layout">
 <div id="main-wrapper"> @include('layouts.base.nav')
-  <div class="page-wrapper"> @yield('content') </div>
+  <div class="page-wrapper"> @yield('content')
+    <a class="wapp" href="//api.whatsapp.com/send?phone=573128907331" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> <span class="wapp-text">Cómo podemos ayudarte?</span> </a> </div>
+
   <footer class="footer"> © <script>document.write(new Date().getFullYear());</script>
-     WaffCake - La wafflería del sabor <a href=""><i class="fa fa-facebook text-primary"></i></a> <a href=""><i class="fa fa-instagram text-primary"></i></a>
-     / by <a data-toggle="tooltip" data-placement="top" href="https://www.geostigmamedia.com" title="Diseño y Desarrollo Web: Geostigma Media" target="_blank"><img src="https://www.waffcake.com/img/geostigma-media.png" alt="geostigmamedia"/></a></footer>
+     WaffCake - La wafflería del sabor
+     <a href="https://www.facebook.com/waffcake" class="facebook" target="_blank" class="ml-2">
+       <i class="fa fa-facebook facebook" style="font-size: 20px"></i>
+      </a>
+      <a href="https://www.instagram.com/waffcake1/" class="instagram" target="_blank" class="ml-2">
+        <i class="fa fa-instagram instagram" style="font-size: 20px"></i>
+      </a>
+     <a data-toggle="tooltip" class="float-right" data-placement="top" href="https://www.geostigmamedia.com"
+     title="Diseño y Desarrollo Web: Geostigma Media" target="_blank"><img src="https://www.waffcake.com/img/geostigma-media.png" alt="geostigmamedia"/></a></footer>
 </div>
 <script src="{{ asset ('js/jquery/jquery-3.2.1.min.js')}}"></script>
 <script src="{{ asset ('js/popper/popper.min.js')}}"></script>
