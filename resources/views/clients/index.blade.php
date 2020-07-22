@@ -25,6 +25,7 @@
                   {!! Session::get('message') !!}
                 </div>
               @endif
+              <div class="table-responsive">
               <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -70,6 +71,7 @@
                   @endforeach
                 </tbody>
               </table>
+              </div>
           </div>
       </div>
     </div>
@@ -84,6 +86,7 @@
                   {!! Session::get('message') !!}
                 </div>
               @endif
+              <div class="table-responsive">
               <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -126,6 +129,7 @@
                   @endforeach
                 </tbody>
               </table>
+              </div>
           </div>
       </div>
     </div>

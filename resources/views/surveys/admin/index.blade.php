@@ -27,6 +27,7 @@
               <h4 class="card-title">Lista de Encuestas Publicas</h4>
               <a href="{{route('chartSurvey')}}" class="btn btn-primary" >Ver Resusltado</a>
               <a href="{{route('surveysResultsPublic')}}" class="btn btn-success" >Exportar Resusltado</a>
+              <div class="table-responsive">
               <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
@@ -58,6 +59,7 @@
                   @endforeach
                 </tbody>
               </table>
+              </div>
           </div>
       </div>
     </div>
@@ -72,7 +74,8 @@
                   {!! Session::get('message') !!}
                 </div>
               @endif
-              <table class="example table table-striped table-bordered" style="width:100%">
+              <div class="table-responsive">
+              ="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
                     <th>Titulo de encuesta</th>
@@ -138,6 +141,7 @@
                   @endforeach
                 </tbody>
               </table>
+              </div>
           </div>
       </div>
     </div>
