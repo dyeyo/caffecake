@@ -5,11 +5,10 @@
       <div class="col-md-12 align-self-center">
         @if(Auth()->user()->roleId == 1)
           <h4 class="text-themecolor">Bienveido
-          {{ Auth()->user()->name }} al perfil administrador del programa de beneficios Waffcake, la wafflería del
-          Sabora </h4>
+          {{ Auth()->user()->name }} al perfil administrador del programa de beneficios Waffcake, la wafflería del Sabor</h4>
         @else
-          <h4 class="text-themecolor">Bienvenido {{ Auth()->user()->name }} a Waffcake, Comienza ahora
-            y ¡A disfrutar del sabor wafflero!</h4>
+         <!-- <h4 class="text-themecolor">Bienvenido {{ Auth()->user()->name }} a Waffcake, Comienza ahora
+            y ¡A disfrutar del sabor wafflero!</h4>-->
         @endif
       </div>
       <div class="col-md-7 align-self-center text-right">

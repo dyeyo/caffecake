@@ -11,7 +11,7 @@
     <div class="navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-sm-none waves-effect waves-dark" href="/home"><i class="ti-menu"></i></a> </li>
-        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="#"><i class="icon-menu ti-menu"></i></a> </li>
+        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="#"><!--<i class="icon-menu ti-menu"></i>--><i class="fas fa-expand"></i></a> </li>
       </ul>
       <ul class="navbar-nav my-lg-0">
         <li class="nav-item dropdown">
