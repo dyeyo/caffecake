@@ -5,12 +5,12 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
   if (Auth::check()) {
     return redirect('/home');
-  } else{
+  } else {
     return view('auth.login');
   }
 });
 Route::get('/referidos',  'ClientContreller@referide')->name('referide');
-Route::get('/encuesta', function(){
+Route::get('/encuesta', function () {
   return view('surveysPublic');
 });
 Route::post('/registro_referidos', 'ClientContreller@create_referide')->name('create_referide');
@@ -55,7 +55,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/encuestas/grafica', 'SurveysController@chartSurvey')->name('chartSurvey');
     Route::get('/encuestas/editar/{id}', 'SurveysController@surveyEdit')->name('surveyEdit');
     Route::put('/encuestas/{id}', 'SurveysController@surveyUpdate')->name('surveyUpdate');
-
   });
 
   Route::group(['middleware' => ['client']], function () {
@@ -65,6 +64,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/encuestas/responder', 'SurveysController@responseSurveys')->name('responseSurveys');
   });
 });
-
-
-

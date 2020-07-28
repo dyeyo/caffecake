@@ -165,7 +165,8 @@ function searchCode() {
 }
 
 function specialCustomer() {
-  var codReference = $(".codReference").val();
+  var codReference = $("#codReferenceCliente").val();
+  console.log(codReference);
   if (codReference != 0) {
     $.getJSON(route("loadBuys", { id: codReference }), function (data) {
       if (data.length == 4) {
@@ -183,7 +184,7 @@ function specialCustomer() {
           $("#decuento").fadeOut(3000);
         }, 3000);
       } else if (data.length == 11) {
-        let idUser = $(".codReference").val();
+        let idUser = $("#regularClienteId").val();
         $("#userIdTarjet").val(idUser);
         let alerta_doce = document.getElementById("alerta");
         alerta_doce.innerHTML = `<div id='decuento' class='alert alert-success'>Felicades, lleva 12 compras, eres acreedor al 50% de descuento, y se le actualizara la tarjeta del cliente</div>`;

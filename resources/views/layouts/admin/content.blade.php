@@ -107,7 +107,7 @@
                     <label for="recipient-name" class="col-form-label">
                       Codigo de tarjeta cliente fiel:
                     </label>
-                    <select required class="codReferenceCliente"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
+                    <select required class="codReferenceCliente" id="codReferenceCliente"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--Buscar código</option>
                       @foreach($frecuentClients as $client)
                         <option value="{{ $client->id }}">

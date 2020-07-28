@@ -18,23 +18,38 @@ class ClientContreller extends Controller
   public function index()
   {
     $clients = DB::table('users')
-                ->Join('client_cards', 'users.id', '=', 'client_cards.userId')
-                ->select('users.id','users.email','users.name','users.lastname','users.numIndentificate',
-                        'users.mobile','client_cards.codReference', 'client_cards.id',
-                        'client_cards.userId','client_cards.created_at')
-                ->where('users.roleId',2)
-                ->where('client_cards.state',1)
-                ->get();
+      ->Join('client_cards', 'users.id', '=', 'client_cards.userId')
+      ->select(
+        'users.id',
+        'users.email',
+        'users.name',
+        'users.lastname',
+        'users.numIndentificate',
+        'users.mobile',
+        'client_cards.codReference',
+        'client_cards.id',
+        'client_cards.userId',
+        'client_cards.created_at'
+      )
+      ->where('users.roleId', 2)
+      ->where('client_cards.state', 1)
+      ->get();
 
     $regularclients = DB::table('users')
-                ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
-                ->select('users.id','users.email','users.name','users.lastname','users.numIndentificate',
-                        'users.mobile')
-                ->where('users.roleId',2)
-                ->where('client_cards.userId',null)
-                ->get();
+      ->leftJoin('client_cards', 'users.id', '=', 'client_cards.userId')
+      ->select(
+        'users.id',
+        'users.email',
+        'users.name',
+        'users.lastname',
+        'users.numIndentificate',
+        'users.mobile'
+      )
+      ->where('users.roleId', 2)
+      ->where('client_cards.userId', null)
+      ->get();
 
-    return view('clients.index', compact('clients','regularclients'));
+    return view('clients.index', compact('clients', 'regularclients'));
   }
 
   public function create()
@@ -56,7 +71,7 @@ class ClientContreller extends Controller
   public function destroy($id)
   {
     User::find($id)->delete();
-    Session::flash('message','El Cliente se elimino con exito');
+    Session::flash('message', 'El Cliente se elimino con exito');
     return redirect()->route('clients');
   }
 
@@ -79,24 +94,23 @@ class ClientContreller extends Controller
       $client->roleId = 2;
       $client->save();
       return redirect()->route('home');
-    }else{
+    } else {
       Session::flash('message', 'El codigo de usario no existe, intenta nuevamente');
       return redirect()->route('referide');
     }
-
   }
 
   public function getClient($id)
   {
     $user = User::find($id);
-    return view('editUser',compact('user'));
+    return view('editUser', compact('user'));
   }
 
   public function updateUser(Request $request, $id)
   {
     //dd($request->all());
     $user = User::find($id);
-    if($request->password == ''){
+    if ($request->password == '') {
       $user->name = $request->name;
       $user->lastname = $request->lastname;
       $user->numIndentificate = $request->numIndentificate;
@@ -119,13 +133,13 @@ class ClientContreller extends Controller
 
   public function referideDiscount(Request $request, User $user, ClientCard $clientCard)
   {
-    $users = $user->where('userReferide', $request->codeReferide)->get(['id','userReferide']);
+    $users = $user->where('userReferide', $request->codeReferide)->get(['id', 'userReferide']);
     return $users;
   }
 
   public function updateUserReferides(Request $request)
   {
-    User::where('userReferide', 'like', '%'.$request->userReferide.'%')->update(['userReferide'=>null]);
+    User::where('userReferide', 'like', '%' . $request->userReferide . '%')->update(['userReferide' => null]);
     Session::flash('message', 'Los el descueto de referidos del cliente fueron tomados con exito');
     return redirect()->route('home');
   }

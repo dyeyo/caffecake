@@ -24,7 +24,8 @@
                     <div class="form-group row">
                       <label for="userReferide" class="col-md-4 col-form-label text-md-right">Codigo de usuario</label>
                       <div class="col-md-6">
-                        <input id="userReferide" type="text" value="<?php echo $_GET["onlyCode"]; ?>"  class="form-control" name="userReferide" required>
+                        <input id="userReferide" type="hidden" value="<?php echo $_GET["onlyCode"]; ?>"  class="form-control" name="userReferide" required>
+                        <input  value="<?php echo $_GET["onlyCode"]; ?>"  class="form-control" name="userReferide" disabled>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -95,7 +96,7 @@
                     </div>
                     <div class="col-lg-12" style="margin-left: 150px;">
                           <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="terminos" id="customCheck1">
+                            <input type="checkbox" required class="custom-control-input" name="terminos" id="customCheck1">
                             <label class="custom-control-label"  for="customCheck1">
                               <a href="/terminos_condiciones" target="_blank">
                                 Aceptar Términos y condiciones

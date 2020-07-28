@@ -18,7 +18,7 @@ class BuyController extends Controller
   {
     $buys = CuponBuy::with('clientCard.user')->get();
     $buysRegular = BuysGeneral::with('user')->get();
-    return view('buys.index',compact('buys','buysRegular'));
+    return view('buys.index', compact('buys', 'buysRegular'));
   }
 
   public function loadBuys($id)
@@ -28,23 +28,22 @@ class BuyController extends Controller
 
   public function create()
   {
-    $frecuentClients = ClientCard::with('user')->where('state',1)->get();
+    $frecuentClients = ClientCard::with('user')->where('state', 1)->get();
     $clients = DB::table('users')
-                ->where('roleId',2)
-                ->whereNotExists(function($query)
-                  {
-                    $query->select(DB::raw(1))
-                          ->from('client_cards')
-                          ->whereRaw('client_cards.userId = users.id');
-                  })
-                ->get();
-    return view('buys.create',compact('clients','frecuentClients'));
+      ->where('roleId', 2)
+      ->whereNotExists(function ($query) {
+        $query->select(DB::raw(1))
+          ->from('client_cards')
+          ->whereRaw('client_cards.userId = users.id');
+      })
+      ->get();
+    return view('buys.create', compact('clients', 'frecuentClients'));
   }
 
   public function store(Request $request)
   {
-    $countBuys = CuponBuy::where('regularClienteId',$request->regularClienteId)->count();
-    $frecuentClients = ClientCard::with('user')->where('id',$request->regularClienteId)->get();
+    $countBuys = CuponBuy::where('regularClienteId', $request->regularClienteId)->count();
+    $frecuentClients = ClientCard::with('user')->where('id', $request->regularClienteId)->get();
     $onyId = $frecuentClients[0]->userId;
 
     if ($countBuys == 11) {
@@ -52,19 +51,19 @@ class BuyController extends Controller
       $clietCartState->state = 2;
       $clietCartState->update();
       ClientCard::create([
-        'codReference' => random_int(1001,5000),
+        'codReference' => random_int(1001, 5000),
         'state' => 1,
         'userId' => $clietCartState->user->id
       ]);
       $venta = CuponBuy::create([
-        'regularClienteId'=>$request->regularClienteId
+        'regularClienteId' => $request->regularClienteId
       ]);
       Session::flash('message', 'Venta registrada con exito y tarjeta de usuario actualizada');
       return redirect()->route('home');
     }
     //dd($request->all());
     $venta = CuponBuy::create([
-      'regularClienteId'=>$request->regularClienteId,
+      'regularClienteId' => $request->regularClienteId,
       //'userId'=>$request->userId
     ]);
     $venta->save();
@@ -74,7 +73,7 @@ class BuyController extends Controller
 
   public function storeRegular(Request $request)
   {
-    $codeUser = User::select('id','userReferide','name')->where('id',$request->userId)->get();
+    $codeUser = User::select('id', 'userReferide', 'name')->where('id', $request->userId)->get();
     foreach ($codeUser as $code) {
       $onlyCode = $code->userReferide;
     }
@@ -88,9 +87,9 @@ class BuyController extends Controller
       ]);
       Session::flash('message', 'Venta registrada con exito');
       ClientCard::create([
-        'codReference'=>rand(1000,9999),
-        'state'=>1,
-        'userId'=>$request->userId,
+        'codReference' => rand(1000, 9999),
+        'state' => 1,
+        'userId' => $request->userId,
       ]);
       return redirect()->route('home');
     }
@@ -104,7 +103,7 @@ class BuyController extends Controller
     return redirect()->route('buys');
   }
 
-  public function createClient(RegisterRequest $request)
+  public function createClient(Request $request)
   {
     $client = new User();
     $client->name = $request->name;
@@ -121,7 +120,7 @@ class BuyController extends Controller
   public function listPurchaseClient()
   {
     $purachase = CuponBuy::with('user')->where(Auth()->user()->id)->get();
-    return view('home',compact('purachase'));
+    return view('home', compact('purachase'));
   }
 
   public function codeRenovation(Request $request, User $user)
@@ -133,7 +132,7 @@ class BuyController extends Controller
   public function destroy($id)
   {
     CuponBuy::find($id)->delete();
-    Session::flash('message','La venta se elimino con exito');
+    Session::flash('message', 'La venta se elimino con exito');
     return redirect()->route('buys');
   }
 }

@@ -31,9 +31,9 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
-                    <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
+                    <th>Correo Cliente</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
@@ -42,9 +42,9 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
-                    <th>Correo Cliente</th>
                     <th>Codigo de Cliente</th>
                     <th>Celular</th>
+                    <th>Correo Cliente</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>

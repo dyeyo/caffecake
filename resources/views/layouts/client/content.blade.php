@@ -40,13 +40,14 @@
       <div class="col-md-4 d-none d-sm-block"> <img src="{{ asset('img/voz.jpg') }}" class="card-img" alt="pasa la voz"> </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-bullhorn"></i> Pasa la voz WaffCake: <span>{{$codReferenceClient}}</span></h5>
+        <h5 class="card-title"><i class="fas fa-bullhorn"></i> Pasa la voz WaffCake: <span> @isset($codReferenceClient){{$codReferenceClient}}@endisset</span></h5>
           <p class="card-text">Podrás ganar el 5% de descuento cada vez que refieras a un amigo y &eacute;l haga efectiva una compra, adem&aacute;s la persona que refieres obtendr&aacute; un descuento del 2%.</p>
           <p><a href="">Conoce más aquí</a></p>
-          <div> @if(Session::has('message'))
-            <div class="alert alert-success"> {!! Session::get('message') !!} </div>
+          <div>
+            @if(Session::has('message'))
+              <div class="alert alert-success"> {!! Session::get('message') !!} </div>
             @endif
-            
+
             @isset($codeClient)
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Agregar Referido </button>
             @endisset </div>
@@ -77,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-          
+
           @isset($purachasesEspecial)
           @foreach($purachasesEspecial as $purachase)
           <tr>
@@ -87,7 +88,7 @@
           @endforeach
           @endisset
             </tbody>
-          
+
         </table>
       </div>
     </div>
@@ -111,7 +112,7 @@
             </tr>
           </thead>
           <tbody>
-          
+
           @isset($surveysActive)
           @foreach($surveysActive as $surveys)
           @if($surveys->ResponseEncuesta)
@@ -136,7 +137,7 @@
           @endforeach
           @endisset
             </tbody>
-          
+
         </table>
       </div>
     </div>
@@ -157,7 +158,7 @@
       <!-- <ul style="list-style: none;">
           <li>Conoce más del programa aquí (Términos y condiciones)</li>
           <li> Preguntas frecuentes</li>
-        </ul>--> 
+        </ul>-->
     </div>
   </div>
 </div>
