@@ -51,7 +51,7 @@
                   Numero de Celular
                 </th>
                 <th>
-                  Codigo de Referencia
+                  Código de Referencia
                 </th>
               </tr>
             </thead>
@@ -67,7 +67,7 @@
                   Numero de Celular
                 </th>
                 <th>
-                  Codigo de Referencia
+                  Código de Referencia
                 </th>
               </tr>
             </tfoot>

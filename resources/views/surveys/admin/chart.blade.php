@@ -65,7 +65,7 @@
         ]);
 
         var options = {
-          title: 'Calificacionesd el Producto'
+          title: 'Calificaciónes del Producto'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -85,7 +85,7 @@
         ]);
 
         var options = {
-          title: 'Calificaciones del Servicio'
+          title: 'Calificaciónes del Servicio'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechartSerivices'));
@@ -105,7 +105,7 @@
         ]);
 
         var options = {
-          title: 'Calificaciones del resentación del producto'
+          title: 'Calificación del presentación del producto'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chartPresentacionProduct'));
@@ -125,7 +125,7 @@
         ]);
 
         var options = {
-          title: 'Calificaciones del resentación del producto'
+          title: 'Calificación de estado del lugar'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chartLugar'));

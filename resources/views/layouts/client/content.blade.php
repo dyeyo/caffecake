@@ -11,7 +11,7 @@
 <div class="card-group banners mt-4">
   <div class="card mr-3">
     <div class="row no-gutters">
-      <div class="col-md-4 d-none d-sm-block"> <img src="{{ asset('img/code.jpg') }}" class="card-img" alt="codigo waffcake"> </div>
+      <div class="col-md-4 d-none d-sm-block"> <img src="{{ asset('img/code.jpg') }}" class="card-img" alt="Código waffcake"> </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><i class="fas fa-qrcode"></i> Tú codigo:@isset($codeClient)
@@ -70,10 +70,10 @@
         <hr>
         <h5 class="card-title"><i class="fas fa-cart-arrow-down"></i> Historial de compras tarjeta cliente fiel</h5>
         <p>Conoce el historial de tus compras</p>
-        <table  class="table table-striped table-bordered" style="width:100%">
+        <table class="example table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>Codigo Usario / Codigo de Compra</th>
+              <th>Código Usario / Código de Compra</th>
               <th>Fecha de Compra</th>
             </tr>
           </thead>

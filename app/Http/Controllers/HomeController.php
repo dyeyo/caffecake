@@ -54,6 +54,7 @@ class HomeController extends Controller
       $purachasesEspecial = DB::table('cupon_buys')
         ->join('client_cards', 'cupon_buys.regularClienteId', '=', 'client_cards.id')
         ->where('client_cards.userId', $idAuth)
+        ->where('client_cards.state', 1)
         ->get();
       $conteoPurachasesEspecial = count($purachasesEspecial);
       $surveysActive = Surveys::with('responseSurveys')->where('state', 1)->get();
@@ -105,9 +106,8 @@ class HomeController extends Controller
       if ($codeReferenceUser != '[]') {
         $codReference = $codeReferenceUser[0];
         $codReferenceClient = DB::table('users')
-          ->leftJoin('buys_generals', 'users.id', '=', 'buys_generals.userId')
-          ->select('id', 'userReferide', 'name', 'buys_generals.userId')
-          //->where('buys_generals.referideComplete',1)
+          // ->leftJoin('buys_generals', 'users.id', '=', 'buys_generals.userId')
+          // ->select('id', 'userReferide', 'name', 'buys_generals.userId')
           ->where('userReferide', $codReference->codReference)
           ->count();
         return view('home', compact(

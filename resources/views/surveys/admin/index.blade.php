@@ -75,7 +75,7 @@
                 </div>
               @endif
               <div class="table-responsive">
-              ="example table table-striped table-bordered" style="width:100%">
+              <table class="example table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
                     <th>Titulo de encuesta</th>

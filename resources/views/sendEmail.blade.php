@@ -6,7 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  Hola registrate en este link con el codigo {{$onlyCode}}
+  Hola registrate en este link con el Código {{$onlyCode}}
   <a href="https://clientes.waffcake.com/referidos?onlyCode={{$onlyCode}}">
     Click Click
   </a>

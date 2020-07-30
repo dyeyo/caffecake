@@ -46,7 +46,7 @@
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de cliente frecuente:
+                      Código de cliente frecuente:
                     </label>
                     <select class="codReference"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--SELECCIONE UNA OPCIÓN</option>
@@ -73,7 +73,7 @@
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de cliente por Indentificación
+                      Código de cliente por Indentificación
                     </label>
                     @isset($clients)
                     <select required class="codReference" name="userId"  style="width: 100%;">

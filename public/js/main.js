@@ -94,7 +94,7 @@ function countReferences() {
           } else {
             $("#totalReferides").append(
               `<div class='alert alert-danger alert-dismissable'>
-                <span>Codigo sin puntos por redenir</span>
+                <span>Código sin puntos por redenir</span>
               </div>`
             );
             setTimeout(function () {

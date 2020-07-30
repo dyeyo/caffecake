@@ -105,7 +105,7 @@
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de tarjeta cliente fiel:
+                      Código de tarjeta cliente fiel:
                     </label>
                     <select required class="codReferenceCliente" id="codReferenceCliente"  onchange="specialCustomer()" name="regularClienteId" style="width: 100%;">
                       <option value="">--Buscar código</option>
@@ -140,7 +140,7 @@
                   {{csrf_field()}}
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Codigo de cliente por Indentificación
+                      Código de cliente por Indentificación
                     </label>
                     @isset($listClients)
                     <select required class="codReference" name="userId"  style="width: 100%;">
@@ -242,7 +242,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Buscar Codigo Referido</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Buscar Código Referido</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -252,8 +252,8 @@
         <form id="searchCode" action="javascript:void(0)" name="searchCode" method="POST">
           {{csrf_field()}}
           <div class="form-group">
-            <label for="emialReferide">Codigo Referido</label>
-            <input type="text" class="form-control" require name="codeReferide" id="codeReferide" placeholder="Codigo Referido">
+            <label for="emialReferide">Código Referido</label>
+            <input type="text" class="form-control" require name="codeReferide" id="codeReferide" placeholder="Código Referido">
           </div>
       </div>
       <div class="modal-footer">

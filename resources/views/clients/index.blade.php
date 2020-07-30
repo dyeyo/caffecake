@@ -31,7 +31,7 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
-                    <th>Codigo de Cliente</th>
+                    <th>Código de Cliente</th>
                     <th>Celular</th>
                     <th>Correo Cliente</th>
                     <th>Editar</th>
@@ -42,7 +42,7 @@
                   <tr>
                     <th>Nombre Completo</th>
                     <th>Num identificación</th>
-                    <th>Codigo de Cliente</th>
+                    <th>Código de Cliente</th>
                     <th>Celular</th>
                     <th>Correo Cliente</th>
                     <th>Editar</th>
