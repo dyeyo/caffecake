@@ -35,7 +35,8 @@ class BuyController extends Controller
         $query->select(DB::raw(1))
           ->from('client_cards')
           ->whereRaw('client_cards.userId = users.id');
-      });
+      })
+      ->get();
     return view('buys.create', compact('clients', 'frecuentClients'));
   }
 
