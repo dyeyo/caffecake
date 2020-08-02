@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------
@@ -27,40 +27,37 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+  use RegistersUsers;
 
-    protected $redirectTo = '/home';
+  protected $redirectTo = '/home';
 
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+  public function __construct()
+  {
+    $this->middleware('guest');
+  }
 
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-          'name' => ['required', 'string', 'max:255'],
-          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-          'password' => ['required', 'string', 'min:8', 'confirmed'],
-          'terminos' => ['required'],
-        ]);
+  protected function validator(array $data)
+  {
+    return Validator::make($data, [
+      'name' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      'password' => ['required', 'string', 'min:8', 'confirmed'],
+      'terminos' => ['required'],
+    ]);
+  }
 
-    }
-
-    protected function create(array $data)
-    {
-      Mail::to($data['email'])->send(new EmailRegister());
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'lastname' => $data['lastname'],
-        'numIndentificate' => $data['numIndentificate'],
-        'mobile' => $data['mobile'],
-        'terminos' => $data['terminos'],
-        'roleId' => 2,
-      ]);
-    }
-
-
+  protected function create(array $data)
+  {
+    Mail::to($data['email'])->send(new EmailRegister());
+    return User::create([
+      'name' => $data['name'],
+      'email' => $data['email'],
+      'password' => Hash::make($data['password']),
+      'lastname' => $data['lastname'],
+      'numIndentificate' => $data['numIndentificate'],
+      'mobile' => $data['mobile'],
+      'terminos' => $data['terminos'],
+      'roleId' => 2,
+    ]);
+  }
 }

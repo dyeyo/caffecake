@@ -103,7 +103,7 @@ class BuyController extends Controller
     return redirect()->route('buys');
   }
 
-  public function createClient(Request $request)
+  public function createClient(RegisterRequest $request)
   {
     $client = new User();
     $client->name = $request->name;

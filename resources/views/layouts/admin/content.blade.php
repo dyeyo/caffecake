@@ -55,7 +55,18 @@
 </div>
 <div class="row">
     <div class="col-12">
+      <div class="alert-danger">
+        @if (count($errors) > 0)
+        <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+      @endif
+      </div>
+
       <div class="card">
+
         <div class="card-body">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
